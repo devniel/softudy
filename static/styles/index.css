@@ -1,0 +1,651 @@
+*{
+	border:0;
+	margin:0;
+	outline:0;	
+}
+
+html {
+	min-width:1000px;
+	height:100%
+}
+
+
+body {
+		/* background-image : -webkit-gradient(radial, center center, 100, center center, 700, from(#FEFEFE), to(#F4F4F4));	 */
+		background:#F5F5F5;
+		 height:100%;
+	}
+	
+/*---------------------------------------------------------------------
+ OTROS
+ ----------------------------------------------------------------------*/
+
+#envoltura {
+	min-height:100%;
+	height:auto !important;
+	heigth:100%;
+	margin:0 auto -50px;
+	width:100%;
+	float:left;
+	}
+	
+#envoltura #header {
+	width:98%;
+	height:40px;
+	margin-bottom:5px;
+	display:block;
+	margin: 0 auto;
+	margin-top:-10px;
+	padding-top:10px;
+}
+
+#envoltura #header .login {
+	padding-left:10px;
+	}
+	
+#envoltura #header .login ul {
+	list-style:none;
+	padding:0;
+	padding-top:8px;	
+	}
+	
+#envoltura #header .login ul li a {
+	text-decoration:none;
+	color : #455c62;
+	cursor:pointer;
+	}
+#envoltura #header .login ul li{
+	float:left;
+	font:12px "Myriad Web Pro";
+	color : #455c62;
+	margin-right:10px;
+	line-height:30px;
+	}
+#envoltura #header .login ul li:hover a{
+	text-decoration:underline;
+	}
+
+#envoltura #header .login ul li.btn_logout:hover {
+	text-decoration:underline;
+	cursor:pointer;
+}	
+
+#envoltura #header .login ul li#name{
+	border-right:1px solid #818181;
+	padding-right:10px;
+	}
+	
+
+#whiteboard {
+	width:96%;
+	height:330px;
+	position:relative;
+	margin:0 auto;
+	background:#FFF;
+	margin-top:20px;
+	border:3px solid #CCC;
+	-webkit-box-shadow:0px 2px 5px #666;
+	background-image : -webkit-gradient(radial, center top, 300, center center, 800, from(#FFF), to(#F6F6F6));	 
+}
+	
+.logo {
+		/*text-shadow: 0px 0px 1px #7392A8;*/
+	width:30%;
+	height:100%;
+	float:left;
+}
+	
+.logo img{
+	/*text-shadow: 0px 0px 1px #7392A8;*/
+	margin-top:130px;
+	margin-left:50px;
+	width:70%
+}
+
+#whiteboard #markers {
+	position:absolute;
+	bottom:0px;
+	right:20px;
+	margin-bottom:-36px;
+}
+
+#whiteboard #drawable {
+	
+	width:60%;
+	height:310px;
+	margin-top:10px;
+	margin-bottom:10px;
+	float:right;
+	margin-right:10px;
+	
+}
+
+#whiteboard #searcher {
+	width:60%;
+	height:310px;
+	margin-top:120px;
+	margin-bottom:10px;
+	float:right;
+	margin-right:10px;
+	position:relative
+}
+
+#whiteboard #searcher h2 {
+	font-family:"Myriad Web Pro";
+	color:#4B4B4B;
+	text-shadow:0px 1px 1px #F3F3F3;
+	margin-bottom:10px;
+}
+
+#whiteboard #searcher .bgInput {
+	font:15px "Myriad Web Pro";
+	position:absolute;
+	top:38px;
+	left:10px;
+	color:#ABABAB;
+	z-index:0;
+	float:left;
+	background:#FFF;
+	width:90%;
+	height:40px;
+	line-height:35px;
+}
+
+#whiteboard #searcher input {
+	width:90%;
+	height:28px;
+	position:relative;
+	padding-top:10px;
+	padding-bottom:0px;
+	padding-left:10px;
+	float:left;
+	margin-right:10px;
+	border-radius:2px;
+	font:15px "Myriad Web Pro";
+	-webkit-box-shadow:0px 1px 4px #ABABAB;
+	z-index:1;
+	background:transparent
+}
+
+		
+#search {
+	width:600px;
+	float:left;
+	-moz-box-shadow: 0px 1px 2px  #C0C0C0;
+	-webkit-box-shadow: 0px 1px 3px  #C0C0C0;
+	box-shadow: 0px 1px 2px  #C0C0C0;
+	background:#FFF;
+	border-radius:2px;
+	margin-top:150px;
+}
+	
+#search input{
+	width:570px;
+	font:15px "Myriad Web Pro";
+	padding:15px 0px 15px 20px;
+}
+
+#search input::-webkit-input-placeholder{
+	color:#666;
+	text-shadow:0px 0px 1px #F00;
+}
+
+#search input:focus {
+	outline:none;
+}
+	
+	
+	#footer, .push {
+		height:50px;
+	}
+	
+	#footer {
+		width:98%;
+		border-top:1px dashed #56676B;
+		margin:0 auto;
+	}
+	
+	#footer ul{
+		list-style:none;
+	}
+	
+	#footer ul li{
+		float:left;
+		font:12px "Myriad Web Pro";
+		font-weight:800;
+		line-height:50px;
+		margin-right:10px;
+		color:#56676B
+	}
+	
+	#footer ul.left {
+		float:left;
+	}
+	
+	#footer ul.right {
+		float:right;
+	}
+
+	#login {
+		margin:0 auto;
+		width:200px;
+		background:transparent
+	}
+	#login #user, #login #pass {
+		height:20px;
+		border-radius:3px;
+		padding:5px;
+		-moz-box-shadow: 0 1px 5px #868E9B;
+		-webkit-box-shadow: 0 1px 5px #868E9B;
+		box-shadow: 0 1px 5px #868E9B;
+		color:#666;
+		margin-top:5px;
+	}
+	
+	#register, #enter {
+		width:70px;
+		height:35px;
+		background:#56676B;
+		margin-top:10px;
+		color:#B0C6CC;
+		font:12px "Myriad Web Pro";
+		border-radius:4px;
+		-moz-border-radius:4px;
+		-moz-box-shadow: 0 0 5px #868E9B;
+		-webkit-box-shadow: 0 0 5px #868E9B;
+		box-shadow: 0 0 5px #868E9B;
+		display:block;
+		float:left;
+		margin-left:10px;
+	}
+	
+	#enter {
+		margin-left:25px;
+	}
+	
+	#register:hover, #enter:hover {
+		cursor:pointer;
+		border-radius:4px;
+		-moz-box-shadow: 0 0 15px #868E9B;
+		-webkit-box-shadow: 0 0 15px #868E9B;
+		box-shadow: 0 0 15px #868E9B;
+	}
+	
+	
+	#suggest {
+		width : 95%;
+		margin:0 auto;
+		height:100px;
+		background:#FFF;
+		border-radius:0px;
+		-moz-box-shadow: 0 0 15px #868E9B;
+		-webkit-box-shadow: 0 0 15px #868E9B;
+		box-shadow: 0 0 15px #868E9B;
+}
+
+#header input#nick {
+		width:150px;
+		height:20px;
+		font:15px "Myriad Web Pro";
+		padding:5px;
+		padding-left:10px;
+		border-radius:2px;
+		-moz-box-shadow: 0 0 15px #868E9B;
+		-webkit-box-shadow: 0 0 15px #868E9B;
+		box-shadow: 0 0 15px #868E9B;
+	}
+	
+#header input#avatar {
+		width:300px;
+		height:20px;
+		font:15px "Myriad Web Pro";
+		padding:5px;
+		padding-left:10px;
+		border-radius:2px;
+		-moz-box-shadow: 0 0 15px #868E9B;
+		-webkit-box-shadow: 0 0 15px #868E9B;
+		box-shadow: 0 0 15px #868E9B;
+	}
+	
+#header input:focus {
+		-moz-box-shadow: 0 0 15px #868E9B;
+		-webkit-box-shadow: 0 0 15px #868E9B;
+		box-shadow: 0 0 15px #868E9B;
+		}
+
+/*-----------------------------------------------------------------------------
+	QUE ESTÁN ESTUDIANDO ¿?
+------------------------------------------------------------------------------------*/
+	
+#studying {
+		width:800px;
+		height:200px;
+		background:transparent;
+		z-index:2;
+		position:absolute;
+		top:430px;
+		left:50px;
+}
+	
+#studying header {
+	font:14px "Myriad Web Pro";
+	text-shadow:0px 2px 1px #F6F6F6;
+	margin-bottom:5px;
+	color:#666
+}
+
+#studying .course {
+		width:200px;
+		height:40px;
+		background:transparent;
+		float:left;
+		margin-top:5px;
+		margin-right:5px;
+		display:block;
+}
+
+#studying .course:hover {
+		cursor:pointer;
+}
+
+#studying .course:hover .course-img {
+		background:#39C;
+}
+
+#studying .course .course-img {
+		width:5px;
+		height:40px;
+		background:#D5D5D5;
+		float:left;
+		margin-right:5px;
+}
+
+#studying .course .course-desc {
+		width:145px;
+		height:50px;
+		background:transparent;
+		float:left;
+}
+
+#studying .course .course-desc .course-name {
+		font:13px "Myriad Web Pro";
+		color:#4D4D4D;
+		display:block;
+		margin-top:5px;
+		font-weight:bold;
+}
+
+#studying .course .course-desc .course-place {
+		font:12px "Myriad Web Pro";
+		color:#C0C0C0;
+		display:block
+}
+
+/*-----------------------------------------------------------------------------
+	SIGN UP
+------------------------------------------------------------------------------------*/
+ 	 #signup {
+ 	 	position:absolute;
+		top:50%;
+		left:50%;
+		width:600px;
+		height:400px;
+		margin-left:-300px;
+		margin-top:-300px;
+		background:transparent;
+		z-index:2;
+		font-family:"Myriad Web Pro";
+		font-size:20px;
+		color : #384b50;
+		display:none;
+ 	 	}
+ 	 	
+ 	 #signup h3 {
+ 	 	font-family:"Cabin", arial,serif;
+ 	 	margin-bottom:10px;
+ 	 	}
+ 	 #signup table tr {
+ 	 	height:50px;
+ 	 	}
+ 	 	
+ 	 #signup table td.td_label {
+ 	 	width:90px;
+ 	 	font-size:15px;
+ 	 	padding-top:8px;
+ 	 	
+	} 	 	
+ 	 #signup table input {
+ 	 	width:400px;
+ 	 	height:25px;
+ 	 	font-size:15px;
+ 	 	color:#333;
+ 	 	padding:5px;
+		-moz-box-shadow: 0 0 5px #CCC;
+		-webkit-box-shadow: 0 0 5px #CCC;
+		box-shadow: 0 0 5px #CCC;
+		}
+		
+	#signup table input:focus {
+		-moz-box-shadow: 0 0 10px #D4D4D4;
+		-webkit-box-shadow: 0 0 10px #D4D4D4;
+		box-shadow: 0 0 10px #D4D4D4;
+ 	 	}
+ 	 	
+ 	#signup table select {
+ 		margin:0;
+ 		border:0;
+ 		padding:0;
+ 		outline:0;
+ 		width:410px;
+ 	 	height:30px;
+ 	 	font-size:15px;
+ 	 	color:#333;
+ 	 	padding:5px;
+ 	 	background:#FFF
+ 		}
+ 		
+ 	#signup table select:focus {
+ 		-moz-box-shadow: 0 0 15px #868E9B;
+		-webkit-box-shadow: 0 0 15px #868E9B;
+		box-shadow: 0 0 15px #868E9B;
+		}
+		
+	 	
+ 	#signup table select option{
+ 		margin:0;
+ 		border:0;
+ 		padding:0;
+ 		width:410px;
+ 	 	height:25px;
+ 	 	font-size:15px;
+ 	 	color:#333;
+ 	 	padding:5px;
+ 	 	background:#FFF
+ 		}
+ 		
+ 	.btn {
+ 		float:right;
+ 		display: inline-block;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		font: 12px "Myriad Web Pro" !important;
+		color:#FFF !important;
+		padding: 0px 10px;
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		box-shadow: 0 1px 1px #CCC;
+		border: solid 1px #5993a5;
+		background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(112,141,150)),color-stop(0.61, rgb(112,141,150)));
+		background-image: -moz-linear-gradient(center bottom,rgb(112,141,150) 0%,rgb(112,141,150) 61%);
+	
+	}
+	
+	
+/*-----------------------------------------------------------------------------
+	SIGN IN
+------------------------------------------------------------------------------------*/
+
+ #signin {
+ 	 	position:absolute;
+		top:50%;
+		left:50%;
+		width:600px;
+		height:400px;
+		margin-left:-300px;
+		margin-top:-200px;
+		background:transparent;
+		z-index:2;
+		font-family:"Myriad Pro";
+		font-size:20px;
+		color : #384b50;
+		display:none;
+ 	 	}
+ 	 	
+ 	 #signin h3 {
+ 	 	text-align:center;
+ 	 	font-family:"Cabin", arial,serif;
+ 	 	margin-bottom:10px;
+ 	 	}
+ 	 #signin table tr {
+ 	 	height:50px;
+ 	 	}
+ 	 	
+ 	 #signin table td.td_label {
+ 	 	width:90px;
+ 	 	font-size:15px;
+ 	 	padding-top:8px;
+ 	 	
+	} 	 	
+ 	 #signin table input {
+ 	 	width:400px;
+ 	 	font-size:15px;
+ 	 	color:#333;
+ 	 	padding:5px;
+		width:400px;
+ 	 	font-size:15px;
+ 	 	color:#333;
+		-moz-box-shadow: 0 0 5px #CCC;
+		-webkit-box-shadow: 0 0 5px #CCC;
+		box-shadow: 0 0 5px #CCC;
+		line-height:20px;
+		}
+		
+	#signin table input:focus {
+		-moz-box-shadow: 0 0 10px #999;
+		-webkit-box-shadow: 0 0 10px #999;
+		box-shadow: 0 0 10px #999;
+ 	 	}
+ 	 	
+ 	#signin table select {
+ 		margin:0;
+ 		border:0;
+ 		padding:0;
+ 		outline:0;
+ 		width:410px;
+ 	 	height:30px;
+ 	 	font-size:15px;
+ 	 	color:#333;
+ 	 	padding:5px;
+ 	 	background:#FFF
+ 		}
+ 		
+ 	#signin table select:focus {
+ 		-moz-box-shadow: 0 0 15px #868E9B;
+		-webkit-box-shadow: 0 0 15px #868E9B;
+		box-shadow: 0 0 15px #868E9B;
+		}
+		
+	 	
+ 	#signin table select option{
+ 		margin:0;
+ 		border:0;
+ 		padding:0;
+ 		width:410px;
+ 	 	height:25px;
+ 	 	font-size:15px;
+ 	 	color:#333;
+ 	 	padding:5px;
+ 	 	background:#FFF
+ 		}
+ 		
+ 	#signin table td.submit button {
+ 		float:right;
+ 		display: inline-block;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		font: 12px "Arial";
+		padding: 5px 15px;
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		box-shadow: 0 1px 1px #CCC;
+		color: #fef4e9;
+		border: solid 1px #5993a5;
+		background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(112,141,150)),color-stop(0.61, rgb(112,141,150)));
+		background-image: -moz-linear-gradient(center bottom,rgb(112,141,150) 0%,rgb(112,141,150) 61%);
+	
+	}
+	
+footer {
+	width:100%;
+	height:30px;
+	background:transparent;
+	float:left;
+}
+footer #content_footer {
+	width:90%;
+	margin:0 auto;
+	border-top:1px solid #CCC
+}
+footer section header {
+	font:16px "Myriad Web Pro";
+	text-shadow:0px 1px 1px #CCC;
+	margin-bottom:5px;
+	font-weight:bold;
+	color:#333
+}
+footer section {
+	width:250px;
+	font:14px "Myriad Web Pro";
+	padding-top:15px;
+	text-shadow:0px 0px 1px #CCC;
+}
+	
+footer #credits {
+	width:90%;
+	font:12px "Myriad Web Pro";
+	text-shadow:0px 0px 1px #CCC;
+	padding-top:10px;
+	margin:0 auto;
+	height:20px;
+	margin-top:10px;
+	background:transparent;
+	border-top:1px solid #CCC;
+}
+
+.logout {
+	float:right;
+	margin-top:5px;
+	text-decoration:none;
+	color:#455C62;
+	font:12px 'Myriad Web Pro';
+	margin-right:20px;
+}
+
+.logout:hover {
+	text-decoration:underline;
+}
+	
+	
+	

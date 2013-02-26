@@ -1,0 +1,939 @@
+*{
+
+	margin:0;
+
+	
+}
+
+html {
+	min-width:1000px;
+	height:100%
+}
+body {
+	height:100%;
+	background:#FBFBFB;
+	background:#FFF;
+	
+}
+
+*:focus {
+	outline:none;
+}
+/*----------------------------------------------------------------------
+	GENERAL
+	-------------------------------------------------------------------------*/
+.btn {
+	width:70px;
+	height:30px;
+	background:#6D96A3;
+	border:1px solid #416D6D;
+	font:14px "Myriad Web Pro";
+	color:#254948;
+	background: -webkit-gradient(linear, left top, left 25, from(#99b6bf), color-stop(4%, #6D96A3), to(#6D96A3));  
+    background: -moz-linear-gradient(top, #99b6bf, #6D96A3 1px, #6D96A3 25px); 
+	-moz-box-shadow: 0 0 2px #BCBCBC;
+	-webkit-box-shadow: 0 0 2px #BCBCBC;
+	box-shadow: 0 0 2px #BCBCBC;
+	float:left;
+	margin-top:2px;
+}
+
+.btn:hover {
+		cursor:pointer;
+	-moz-box-shadow: 0 0 5px #878787;
+	-webkit-box-shadow: 0 0 5px #878787;
+	box-shadow: 0 0 5px #878787;
+}
+
+#tooltip {
+	background : #000,
+	color : #FFF,
+	position : absolute,
+	top : 10px,
+	left : 10px,
+	width : 100px,
+	height : 50px,
+	borderRadius : 5px,
+	display : none,
+	padding : 10px,
+	font: 10px 'Myriad Web Pro'
+}
+
+/*---------------------------------------------------------------------
+	HEADER
+	--------------------------------------------------------------------*/
+
+#header {
+	width:98%;
+	max-width:1440px;
+	margin:0 auto;
+	height:35px;
+	margin-bottom:10px;
+	background:#5b7a9a;
+	/*background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #526f8c),color-stop(0.90, #49687f));*/
+	border-bottom-right-radius:5px;
+	border-bottom-left-radius:5px;
+}
+
+#header #user{
+	height:25px; /*antes 100*/
+	background:transparent;
+	padding:5px;
+	float:right;
+}
+
+#header #user #userPicture {
+	float:left;
+	height:20px;/*antes 100*/
+	width:20px;
+	border:1px solid #6C6C6C;
+	margin-top:1px;
+}
+
+#header #user #userPicture  img{
+	height:20px;
+	width:20px;
+}
+
+#header #user #userInfo {
+	float:left;
+	height:35px;/*antes 100*/
+	background:transparent;
+	text-align:left;
+	font:10px "Myriad Web Pro";
+	padding-left:5px;
+	padding-right:5px;
+}
+
+#header #user #userInfo h2.name{
+	color:#FFF;
+	font:11px "Tahoma";
+	margin-top:5px;
+	margin-bottom:2px;		
+	color:#FFF;
+	text-shadow:0px 1px 0px #000;
+	font-weight:bold;
+}
+
+#header #user #userInfo h4.university, h4.career{
+	color:#CCC;
+	margin-top:-4px;
+	font:11px "Myriad Web Pro";
+	}
+
+/*---------------------------------------------------------------------
+	OPTIONS
+	--------------------------------------------------------------------*/
+	
+#header #menu {
+	height:100%;
+	float:right;
+	margin-right:10px;	
+}
+	
+#header #menu ul {
+	list-style:none;
+	padding:0;
+	margin-top:0px;
+}
+
+#header #menu ul li {
+	float:left;
+	font:11px "Myriad Web Pro";
+	line-height:35px;
+	margin-right:5px;
+	text-align:center;
+	padding:0px 10px;
+	height:35px;
+	background:transparent;
+}
+
+#header #menu ul li.user img{
+	float:left;
+	margin-right:5px;
+	margin-top:6px;
+	border:1px solid #4d6a87
+}
+
+#header #menu ul li a {
+	text-decoration:none;
+	color:#FFF;
+	text-shadow:0px 1px 0px #000;
+	font-weight:bold;
+}
+
+#header #menu ul li:hover a{
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+#header #menu ul li.active {
+	position:relative;
+	color:#F00;
+	border-radius:3px;
+}
+
+#header #menu ul li.active a{
+	font-weight:bold;
+}
+
+/*---------------------------------------------------------------------
+	LOGO
+	--------------------------------------------------------------------*/
+
+#header #logo {
+	font:20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#FFF;
+	float:left;
+	padding-top:6px;
+	padding-right:10px;
+	margin-left:5px;
+	margin-right:20px;
+}
+
+#header #logo a {
+	color:#FFF;
+	text-decoration:none;
+}
+
+/*---------------------------------------------------------------------
+	PAGE
+	--------------------------------------------------------------------*/
+	
+#page {
+	width:100%;
+	margin:0 auto;
+	height:auto;
+	}
+	
+/*---------------------------------------------------------------------
+	CONTAINER
+	--------------------------------------------------------------------*/
+	
+#page #container {
+	width:98%;
+	margin:0 auto;	
+}
+
+/*---------------------------------------------------------------------
+	LEFT - RIGHT
+	--------------------------------------------------------------------*/
+	
+#page #container #left{
+	margin-right:-100%;
+	width:200px;
+	float:left;
+	height:300px;
+	position:relative;
+	z-index:300;	
+}
+
+#page #container #right{
+	float:left;
+	width:100%;
+}
+
+#page #container #right_container {
+	margin-left:210px;
+	padding:0px 10px 10px 10px;
+	background:#F00;
+	overflow:hidden;
+	background:#FFF;
+}
+
+/*--------------------------------------------------------------------
+	BOX
+	------------------------------------------------------------*/
+	
+#page #container #right_container .box {
+	width:100%;
+	border:1px solid #D5D5D5;
+	margin-bottom:10px;
+}
+
+#page #container #right_container .box header{
+	width:100%;
+	height:30px;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #F6F6F6),color-stop(0.90, #FAFAFA));
+	border-bottom:1px solid #EAEAEA
+}
+
+#page #container #right_container .box header span{
+	margin-left:10px;
+	font:12px "Myriad Web Pro";
+	text-shadow:0px 1px 1px #FFF;
+	font-weight:bold;
+	line-height:28px;
+}
+
+#page #container #right_container .box .inner-box {
+	width:98%;
+	padding:1%;
+}
+
+#page #container #right_container .box input[type="search"] {
+	width:100%;
+	padding:10px;
+	height:40px;
+	margin-bottom:10px;
+	font:12px "Tahoma"
+}
+
+#page #container #right_container .box input[type="text"] {
+	width:98%;
+	padding:0% 1%;
+	height:36px;
+	margin-bottom:10px;
+	font:12px "Tahoma";
+}
+
+
+/*---------------------------------------------------------------------
+	RIGHT SEARCH
+	--------------------------------------------------------------------*/
+#page #container #right_container .search .inner-box .wrapper-textarea {
+	position:relative;
+}
+
+#page #container #right_container .search button.filter{
+	width:65px;
+	border:1px solid #C0C0C0;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.90, #F0F0F0));
+	font-weight:bold;
+	text-shadow:0px 0px 1px #FFF;
+	color:#2D2D2D;
+	font-size:11px;	
+	cursor:pointer;
+	
+	position:absolute;
+	top:0px;
+	right:0px;
+	height:40px;
+}
+
+#page #container #right_container .search button.filter img{
+	float:right;
+	width:10px;
+	margin-top:2px;
+}
+
+#page #container #right_container .search ul.filter-select{
+	padding:0;
+	width:150px;
+	height:auto;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.90, #F0F0F0));
+	border:1px solid #C0C0C0;
+	border-top:none;
+	top:40px;
+	right:0;
+	position:absolute;
+	list-style:none;
+	
+	display:none;
+}
+
+#page #container #right_container .search ul.filter-select li{
+	width:100%;
+	height:30px;
+	background:-webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.90, #F0F0F0));
+	cursor:pointer;
+}
+
+#page #container #right_container .search ul.filter-select li:hover {
+	background:-webkit-gradient(linear,left bottom,left top,color-stop(0.10, #F0F0F0),color-stop(0.90, #EAEAEA));
+}
+
+#page #container #right_container .search ul.filter-select li span{
+	margin-left:5px;
+	line-height:30px;
+	font-size:11px;
+	font-family:"Tahoma";
+	font-weight:bold;
+}
+
+
+
+#page #container #right_container .search #search-results {
+	width:100%;
+}
+
+#page #container #right_container .search #search-results .not-found { /* NOT FOUND */
+	width:100%;
+	height:30px;
+	font:11px "Tahoma";
+	line-height:30px;
+	text-align:center;
+	font-weight:bold;
+}
+
+#page #container #right_container .search #search-results .not-found img{ /* NOT FOUND */
+	width:20px;
+	margin-right:5px;
+}
+
+/*---------------------------------------------------------------------
+	COURSE-CONTAINER
+	-------------------------------------------------------------------*/
+.suggest-courses table {
+	width:100%;
+}
+
+.course-container {
+	margin:5px auto;
+	width:100%;
+	height:30px;
+	margin:0;
+}
+
+.course-container:hover {
+	background:#F0F0F0;
+	border-radius:5px;
+	cursor:pointer;
+}
+
+.course-container .course-data {
+	font:11px "Tahoma";
+	color:#000;
+	line-height:30px;
+	padding:0 10px;
+	float:left;
+	height:100%;
+	border-right:1px solid #EAEAEA;
+	text-align:center;	
+}
+
+.course-container .title{
+	font-weight:bold;
+	border-right:1px solid #EAEAEA;
+	text-align:left;
+	color:#333;
+	text-shadow:0px 0px 1px #FFF;
+	width:35%
+}
+
+
+/*.course-container .title div:after {content: ' ... ';}*/
+
+.course-container .students{
+	overflow:hidden;
+	font-weight:bold;
+	border-right:1px solid #EAEAEA;
+	text-align:left;
+	color:#333;
+	text-shadow:0px 0px 1px #FFF;
+	width:5%;
+}
+
+.course-container .university{
+	overflow:hidden;
+	font-weight:bold;
+	border-right:1px solid #EAEAEA;
+	width:20%;
+	color:#333;
+	text-shadow:0px 0px 1px #FFF;
+	text-align:left;
+}
+
+.course-container .career{
+	overflow:hidden;
+	font-weight:bold;
+	border-right:1px solid #EAEAEA;
+	text-align:left;
+	color:#333;
+	text-shadow:0px 0px 1px #FFF;
+	width:20%
+}
+
+.course-container .last-msg{
+	text-align:left;
+	border-right:none;
+	width:25%;
+}
+
+.course-container .last-msg img{
+	text-align:left;
+	margin-top:7px;
+	float:left;
+	margin-right:5px;
+}
+
+
+/*---------------------------------------------------------------------
+	RIGHT ADD
+	--------------------------------------------------------------------*/
+	
+#page #container #right_container .add input[type="submit"] {	
+	width:60px;
+	height:25px;
+	border:1px solid #C0C0C0;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.90, #F0F0F0));
+	font-weight:bold;
+	text-shadow:0px 0px 1px #FFF;
+	color:#2D2D2D;
+	font-size:11px;
+	float:left;
+	cursor:pointer
+}
+
+#page #container #right_container .add input[type="submit"].active {	
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #F0F0F0 ),color-stop(0.90,#EAEAEA));
+}
+
+/*---------------------------------------------------------------------
+	OPT  [LEFT]
+	---------------------------------------------------------------------*/
+	
+.opt {
+	width:100%;
+	float:left;
+	background:#FFF;
+	border:1px solid #EAEAEA;
+	-webkit-box-shadow:none !important;
+	margin-bottom:5px;
+}
+
+.opt header{
+	width:100%;
+	height:30px;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #F6F6F6),color-stop(0.90, #FAFAFA));
+}
+
+.opt header:hover{
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #FAFAFA),color-stop(0.90,#F6F6F6));
+	cursor:pointer;
+}
+
+.opt header:first-child span {
+	margin-left:5px;
+	font:12px "Myriad Web Pro";
+	text-shadow:0px 1px 1px #FFF;
+	font-weight:bold;
+	line-height:28px;
+}
+
+.opt header .icon {
+	width:30px;
+	height:30px;
+	float:left;
+	background:url(/img/icons/book.png) center no-repeat;
+	background-size:16px
+}
+
+.opt .opt-inner {
+	width:100%;
+	height:auto;
+	background:#FFF;
+	display:none;
+}
+
+/*---------------------------------------------------------------------
+	OPT FRIENDS
+	--------------------------------------------------------------------*/
+	
+.friends header .icon{
+	background:url(/img/icons/102-walk.png) center no-repeat;
+	background-size:12px
+}
+
+/*---------------------------------------------------------------------
+	OPT COURSES [ INNER ALSO ]
+	--------------------------------------------------------------------*/
+	
+.courses header .icon {
+	width:30px;
+	height:30px;
+	float:left;
+	background:url(/img/icons/book.png) center no-repeat;
+	background-size:15px
+}
+	
+.courses .list-courses { /* INNER */
+	width:100%;
+}
+
+.courses .list-courses .empty { /* EMPTY */
+	width:90%;
+	height:50px;
+	background:#FFF;
+	margin:0 auto;
+	text-align:center;
+	
+}
+
+.courses .list-courses .empty span{ /* EMPTY */
+	line-height:50px;
+	font-family:"Tahoma";
+	font-size:11px;
+	font-weight:bold;
+}
+
+.courses .list-courses .course {
+	width:90%;
+	margin:5px auto;
+	height:30px;
+	background:#FFF;
+	padding:5px;
+}
+
+.courses .list-courses .course:hover {
+	background:#F8F8F8
+}
+
+.courses .list-courses .course .course-title {
+	font:12px "Myriad Web Pro";
+	font-weight:bold;
+	color:#000;
+	float:left;
+	margin-top:2px;
+}
+
+.courses .list-courses .course .course-students {
+	font:10px "Myriad Web Pro";
+	color:#4E4E4E;
+}
+
+.courses .list-courses .course .course-buttons {
+	height:100%;
+	float:right;
+}
+
+.courses .list-courses .course .course-buttons .course-button {
+	width:22px;
+	height:22px;
+	margin-left:5px;
+	margin-top:2px;
+	background:#CCC;
+	border:1px solid #C0C0C0;
+	-webkit-box-shadow:0px 0px 1px #EAEAEA;
+	border-radius:2px;
+}
+
+.courses .list-courses .course .course-buttons .course-button:hover{
+	cursor:pointer;	
+}
+
+.courses .list-courses .course .course-buttons .notebook{
+	background:url(/img/icons/book.png) #F5F5F5 no-repeat center;
+	background-size:12px;
+}
+
+.courses .list-courses .course .course-buttons .slate{
+	background:url(/img/icons/41-picture-frame.png) #F5F5F5 no-repeat center;
+	background-size:12px;
+}
+
+/*---------------------------------------------------------------------
+	OPT CIRCLES
+--------------------------------------------------------------------*/
+
+.circles header .icon {
+	width:30px;
+	height:30px;
+	float:left;
+	background:url(/img/icons/112-group.png) center no-repeat;
+	background-size:20px
+}
+
+
+.circles .circle{
+	width:100%;
+	height:auto;
+	float:left;
+	background:transparent;
+	vertical-align:central;
+	border-bottom:1px solid #CCC;
+	padding-bottom:5px;
+	padding-top:5px;	
+}
+
+.circles .circle .circle-logo {
+	float:left;
+	width:32px;
+	height:32px;
+	background:transparent;
+	margin-right:10px;
+	margin-left:10px;	
+}
+
+
+.circles .circle .circle-title {
+	font:11px "Myriad Web Pro";
+	font-weight:bold;
+	display:block
+}
+
+.circles .circle .circle-members {
+	font:9px "Tahoma";
+}
+
+/*---------------------------------------------------------------------
+	FIRENDS
+--------------------------------------------------------------------*/
+
+.friends .list-friends {
+	width:100%;
+}
+
+.friends .list-friends .empty { /* EMPTY */
+	width:90%;
+	height:50px;
+	background:#FFF;
+	margin:0 auto;
+	text-align:center;
+	
+}
+
+.friends .list-friends .empty span{ /* EMPTY */
+	line-height:50px;
+	font-family:"Tahoma";
+	font-size:11px;
+	font-weight:bold;
+}
+	
+
+#projects {
+	width:100%;
+	border:1px solid #E9E9E9;
+	float:left;
+	margin-top:10px
+}
+
+#projects header:first-child{
+	font:13px "Myriad Web Pro";
+	margin-bottom:0px !important;	
+}
+
+
+#projects header:first-child span {
+	padding:5px;
+	float:left;
+}
+
+#projects .project{
+	width:100%;
+	height:auto;
+	float:left;
+	background:transparent;
+	vertical-align:central;
+	border-bottom:1px solid #CCC;
+	padding-bottom:5px;
+	padding-top:5px;	
+}
+
+#projects .project .project-logo {
+	float:left;
+	width:32px;
+	height:32px;
+	background:transparent;
+	margin-right:10px;
+	margin-left:10px;	
+}
+
+
+#projects .project .project-title {
+	font:13px "Myriad Web Pro";
+	font-weight:bold;
+	display:block;
+	margin-left:10px;
+}
+
+#projects .project .project-members {
+	font:9px "Tahoma";
+}
+
+
+#projects .project .project-members ul{
+	padding:0;
+	margin:0;
+	list-style:none;
+	margin-left:10px;
+}
+
+#projects .project .project-members ul li{
+	float:left;
+	margin-right:2px;
+	opacity:1;
+}
+
+
+/*---------------------------------------------------------------------
+	GROUPS
+--------------------------------------------------------------------*/
+
+#groups {
+	width:100%;
+	border:1px solid #E9E9E9;
+	float:left;
+	margin-top:10px
+}
+
+#groups header:first-child{
+	font:13px "Myriad Web Pro";
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+
+#groups header:first-child span {
+	padding:5px;
+	float:left;
+}
+
+#groups ul{
+	margin:0 3%;
+	width:94%;
+	height:auto;
+	margin-bottom:5px;
+	float:left;
+	background:transparent;
+	vertical-align:central;
+	padding:0;
+	list-style:none;
+}
+
+#groups ul li:first-child {
+	border-top:1px solid #DCDCDC;
+}
+
+#groups ul li {
+	font:12px "Myriad Web Pro";
+	border-bottom:1px solid #DCDCDC;
+	display:block;
+	height:20px;
+	vertical-align:middle;
+	line-height:20px;
+	width:100%;
+	display:block;
+}
+
+#groups ul li:hover {
+	background:#F6F6F6;
+	cursor:pointer
+}
+
+
+#groups ul li .members{
+	float:right
+}
+
+#groups .circle .circle-logo {
+	float:left;
+	width:50px;
+	height:50px;
+	background:#F00;
+	margin-right:10px;
+	
+}
+
+
+#groups .circle .circle-title {
+	font:11px "Tahoma";
+	font-weight:bold;
+}
+
+#groups .circle .circle-members {
+	font:9px "Tahoma";
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------
+	POST USER PUBLISH
+	----------------------------------------------------------------------------------------------------------------------------------------*/
+.publish {
+	width:320px;
+	height:auto !important;
+	padding-bottom:5px;
+}
+
+.publish > section{
+	width:310px;
+	margin-top:5px !important;
+	height:auto;
+	margin:0 auto;
+}
+
+.publish > section textarea{
+	width:298px;
+	height:13px;
+	padding:5px;
+	background:#FFF;
+	border:1px solid #CAD9DF;
+	font:11px "Tahoma";
+	resize:none;
+}
+
+.publish > button{
+	width:60px;
+	height:25px;
+	border:1px solid #C0C0C0;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.90, #F0F0F0));
+	font-weight:bold;
+	text-shadow:0px 0px 1px #FFF;
+	color:#2D2D2D;
+	font-size:11px;
+	float:left;
+	margin-left:5px;
+}
+
+.publish > button:hover{
+	background:#D5D5D5;
+	color:#030303;
+	cursor:pointer;
+
+}
+
+.publish > button:active{
+	background:#CCC;
+	color:#030303;
+	cursor:pointer;
+}
+
+.publish > section > button:hover{
+	background:#D5D5D5;
+	color:#030303;
+	cursor:pointer;
+
+}
+
+.publish > section > button:active{
+	background:#CCC;
+	color:#030303;
+	cursor:pointer;
+}
+
+/*-----------------------------------------------------------------------------------------------------------
+	URL - INFO 
+	---------------------------------------------------------------------------------------------------------*/
+	
+.publish > section #url-info {
+	width:298px;
+	height:auto;
+	padding:10px 5px;
+	background:url("/img/gif/loader2.gif") no-repeat center #FFF;
+	position:relative;
+	border:1px solid #CAD9DF;
+	margin-bottom:5px;
+}
+
+.publish > section #url-info img{
+	float:left;
+	margin-right:5px;
+	height:50px;
+}
+
+.publish > section #url-info .data-title{
+	font:11px 'Tahoma';
+	color:#666;;
+	word-wrap:break-word;
+	text-shadow:0px 0px 1px #EAEAEA;
+	font-weight:bold;
+	display:block;
+	margin-bottom:5px;
+	background-size:10px 10px;
+}
+
+.publish > section #url-info .data-description{
+	font:11px 'Tahoma';
+	color:#666;
+	text-shadow:0px 0px 1px #EAEAEA;
+	line-height:15px !important;
+}
+

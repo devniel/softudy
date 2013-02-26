@@ -1,0 +1,954 @@
+*{
+
+	margin:0;
+
+	font-family:"Myriad Web Pro";
+	
+}
+
+html {
+	min-width:1000px;
+	height:100%
+}
+body {
+	height:100%;
+	background:#FFF;
+}
+
+/*----------------------------------------------------------------------
+	GENERAL
+	-------------------------------------------------------------------------*/
+#tooltip {
+	background : #000;
+	color : #FFF;
+	position : absolute;
+	top : 10px;
+	left : 10px;
+	width : 100px;
+	height : 50px;
+	borderRadius : 5px;
+	display : none;
+	padding : 10px;
+	font: 10px 'Myriad Web Pro'
+}
+
+#global-apps {
+	width:auto;
+	height:30px;
+	position:fixed;
+	bottom:0;
+	right:10px;
+}
+
+#global-apps #global-chat {
+	width:70px;
+	height:30px;
+	background:#EAEAEA;
+	border:1px solid #D5D5D5;
+	font:10px "Myriad Web Pro";
+	line-height:30px;
+	text-align:center;
+	font-weight:bold;
+	float:left;
+}
+
+.global-chat-box {
+	width:200px;
+	height:250px;
+	background:#FFF;
+	border:1px solid #D5D5D5;
+	font:10px "Myriad Web Pro";
+	line-height:30px;
+	text-align:center;
+	font-weight:bold;
+	float:left;
+	
+	position:fixed;
+	bottom:30px;
+	right:10px;
+}
+
+.global-chat-box #chat-log {
+	width:200px;
+	height:225px;
+	background:#FFF;
+	float:left;
+	font:10px "Myriad Web Pro";
+	overflow:auto;
+}
+
+.global-chat-box .chat-msg {
+	width:170px;
+	float:left;
+	border-bottom:1px solid #F6F6F6;
+	padding:5px;
+	text-align:left;
+}
+
+.global-chat-box .chat-msg .chat-user {
+	width:22px;
+	height:22px;
+	margin-right:5px;
+	float:left;
+
+}
+
+.global-chat-box .chat-msg .chat-user img{
+	width:22px;
+	height:22px;
+
+}
+
+.global-chat-box #chat-form {
+	width:190px;
+	height:15px;
+	background:#FFF;
+	float:left;
+	padding:5px;
+	border-top:1px solid #D5D5D5;
+	border-bottom:1px solid #D5D5D5;
+}
+
+.global-chat-box #chat-form input{
+	width:170px;
+	height:15px;
+	background:#FFF;
+	float:left;
+	border:0;
+	margin:0;
+	outline:0;
+	padding-left:20px;
+	background:url(../img/ui/textfield.png) no-repeat left;
+}
+
+.global-chat-box #chat-form input::-webkit-input-placeholder {
+	line-height:30px !important;
+}
+
+
+/*-----------*/
+
+#global-apps #global-chat:hover {
+	background-color:#D5D5D5;
+	cursor:pointer;
+}
+
+#global-apps #global-online {
+	width:30px;
+	height:30px;
+	border:1px solid #C0C0C0;
+	border-left:0px;
+	font:10px "Myriad Web Pro";
+	line-height:30px;
+	text-align:center;
+	font-weight:bold;
+	float:left;
+	background:url(../img/icons/112-group.png) #FFF no-repeat center;
+	background-size:22px 16px;
+}
+/*---------------------------------------------------------------------
+	HEADER
+	--------------------------------------------------------------------*/
+
+#header {
+	width:98%;
+	max-width:1440px;
+	margin:0 auto;
+	height:35px;
+	margin-bottom:5px;
+	background:#5b7a9a;
+	/*background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #526f8c),color-stop(0.90, #49687f));*/
+	border-bottom-right-radius:5px;
+	border-bottom-left-radius:5px;
+}
+
+#header #user{
+	height:25px; /*antes 100*/
+	background:transparent;
+	padding:5px;
+	float:right;
+}
+
+#header #user #userPicture {
+	float:left;
+	height:20px;/*antes 100*/
+	width:20px;
+	border:1px solid #6C6C6C;
+	margin-top:1px;
+}
+
+#header #user #userPicture  img{
+	height:20px;
+	width:20px;
+}
+
+#header #user #userInfo {
+	float:left;
+	height:35px;/*antes 100*/
+	background:transparent;
+	text-align:left;
+	font:10px "Myriad Web Pro";
+	padding-left:5px;
+	padding-right:5px;
+}
+
+#header #user #userInfo h2.name{
+	color:#FFF;
+	font:11px "Tahoma";
+	margin-top:5px;
+	margin-bottom:2px;		
+	color:#FFF;
+	text-shadow:0px 1px 0px #000;
+	font-weight:bold;
+}
+
+#header #user #userInfo h4.university, h4.career{
+	color:#CCC;
+	margin-top:-4px;
+	font:11px "Myriad Web Pro";
+	}
+
+/*---------------------------------------------------------------------
+	OPTIONS
+	--------------------------------------------------------------------*/
+	
+#header #menu {
+	height:100%;
+	float:right;
+	margin-right:10px;	
+}
+	
+#header #menu ul {
+	list-style:none;
+	padding:0;
+	margin-top:0px;
+}
+
+#header #menu ul li {
+	float:left;
+	font:11px "Myriad Web Pro";
+	line-height:35px;
+	margin-right:5px;
+	text-align:center;
+	padding:0px 10px;
+	height:35px;
+	background:transparent;
+}
+
+#header #menu ul li.user img{
+	float:left;
+	margin-right:5px;
+	margin-top:6px;
+	border:1px solid #4d6a87
+}
+
+#header #menu ul li a {
+	text-decoration:none;
+	color:#FFF;
+	text-shadow:0px 1px 0px #000;
+	font-weight:bold;
+}
+
+#header #menu ul li:hover a{
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+#header #menu ul li.active {
+	position:relative;
+	color:#F00;
+	border-radius:3px;
+}
+
+#header #menu ul li.active a{
+	font-weight:bold;
+}
+
+/*---------------------------------------------------------------------
+	LOGO
+	--------------------------------------------------------------------*/
+
+#header #logo {
+	font:20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#FFF;
+	float:left;
+	padding-top:6px;
+	padding-right:10px;
+	margin-left:5px;
+	margin-right:20px;
+}
+
+#header #logo a {
+	color:#FFF;
+	text-decoration:none;
+}
+
+/*---------------------------------------------------------------------
+	PAGE
+	--------------------------------------------------------------------*/
+	
+#page {
+	width:100%;
+	max-width:1440px;
+	margin:0 auto;
+	height:auto;
+	}
+	
+/*---------------------------------------------------------------------
+	CONTAINER
+	--------------------------------------------------------------------*/
+	
+#page #container {
+	position:relative;
+	clear:both;
+	float:left;
+	width:100%;
+	background:transparent
+}
+
+/*---------------------------------------------------------------------
+	CONTAINER HEADER
+	--------------------------------------------------------------------*/
+
+#page #container > header{
+	width:98%;
+	height:30px;
+	
+	/*background:#EAEAEA;
+	background:url(../img/icons/book.png) left center no-repeat;
+	background-size:16px;*/
+	line-height:30px;
+	border:1px solid #EAEAEA;
+	margin:0 auto;
+	margin-bottom:10px;
+	border-radius:5px;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #F6F6F6),color-stop(0.90, #FAFAFA));
+}
+
+#page #container > header span{
+	margin-left:10px;
+	float:left;
+	font-size:11px;
+	font-family:"Tahoma";
+	font-weight:bold;
+	text-shadow:0px 0px 1px #FFF;
+	line-height:29px;
+	background:url(../img/icons/book.png) no-repeat left;
+	background-size:12px;
+	padding-left:20px;
+}
+
+#page #container > header nav{
+	float:right;
+	margin-right:10px;
+}
+
+#page #container > header nav ul{
+	list-style:none;
+	padding:0;
+}
+
+#page #container > header nav ul li{
+	float:left;
+	margin-left:10px;
+	font:11px "Myriad Web Pro";
+	font-weight:bold;
+	line-height:30px;
+	display:block;
+}
+
+#page #container > header nav ul li.opt-goals{
+	background:url(/img/icons/140-gradhat.png) #F4F4F4 left no-repeat ;
+	background-size:16px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li.opt-categories{
+	background:url(/img/icons/12-eye.png) left no-repeat ;
+	background-size:16px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li.opt-masters{
+	background:url(/img/icons/165-glasses-3.png) left no-repeat ;
+	background-size:16px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li.opt-viewers{
+	background:url(../img/icons/12-eye.png) left no-repeat ;
+	background-size:15px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li.opt-saved{
+	background:url(../img/icons/44-shoebox.png) left no-repeat ;
+	background-size:15px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li.opt-publish{
+	background:url(/img/icons/180-stickynote.png) left no-repeat ;
+	background-size:13px;
+	padding-left:18px;
+}
+
+#page #container > header nav ul li:hover{
+	text-decoration:underline;
+	cursor:pointer
+}
+
+#page #container > header nav ul li.categories ul{
+	display:none;
+}
+
+/*---------------------------------------------------------------------
+	BOARD
+--------------------------------------------------------------------*/
+
+#page #container #board {
+	width:98%;
+	position:relative;
+	height:auto;
+	margin:0 auto;
+	margin-top:5px;
+	
+
+}
+
+/*---------------------------------------------------------------------
+	NOTEPAD
+--------------------------------------------------------------------*/
+
+#page #container #board #notepad {
+	width:100%;
+	height:auto;
+	position:relative;
+	margin-top:0px;
+	margin:0 auto;
+	background:#FFF;
+	border:1px solid #F6F6F6;
+	background:#FFF;
+}
+
+#page #container #board #notepad #notepad-tools {
+	width:auto;
+	position:absolute;
+	top:0;
+	left:0;
+	height:30px;
+	background:transparent;
+	z-index:3;
+	margin:10px;
+}
+
+#page #container #board #notepad #notepad-tools .notepad-tool{
+	width:30px;
+	height:30px;
+	border:0;
+	cursor:pointer;
+	padding:5px 0px;
+	float:left;
+	text-align:left;
+	padding-left:30px;
+	font:11px "Myriad Web Pro";
+}
+
+#page #container #board #notepad #notepad-tools .disabled{
+	opacity:0.3;
+}
+
+#page #container #board #notepad #notepad-tools .disabled:hover{
+	cursor:not-allowed
+}
+
+#page #container #board #notepad #notepad-tools .notepad-tool:hover{
+	background-color:#F6F6F6
+}
+
+#page #container #board #notepad #notepad-tools .maximize{
+	background:url(/img/tango/22x22/actions/view-fullscreen.png) no-repeat center;
+	float:left;	
+}
+
+#page #container #board #notepad #notepad-tools .minimize{
+	background:url(/img/tango/22x22/emblems/emblem-symbolic-link.png) no-repeat center;
+	float:left;
+}
+
+#page #container #board #notepad #notepad-tools .eraser{
+	background:url(../img/tango/draw-eraser.png) no-repeat center;
+	background-size:22px 22px;
+	float:left;
+}
+
+#page #container #board #notepad #notepad-tools .pencil{
+	background:url(../img/tango/draw-freehand.png) no-repeat center;
+	background:url(../img/icons/187-pencil.png) no-repeat center;
+	background-size:17px 17px;
+	float:left;
+}
+
+#page #container #board #notepad #notepad-tools .blank{
+	background:url(../img/tango/document-new.png) no-repeat center;
+	background-size:22px 22px;
+	float:left;
+}
+
+#page #container #board #notepad #notepad-tools .save{
+	background:url(../img/tango/22x22/actions/document-save.png) no-repeat center;
+	background:url(../img/icons/40-inbox.png) no-repeat center;
+	background-size:17px 17px;
+	float:left;
+}
+
+#page #container #board #notepad #notepad-tools .animate{
+	background:url(../img/tango/22x22/actions/media-playback-start.png) no-repeat center;
+	background:url(../img/icons/45-movie-1.png) no-repeat center;
+	background-size:17px 17px;
+	float:left;
+}
+
+
+#page #container #board #notepad #notepad-show {
+	width:100%;
+	height:550px;
+	overflow:auto;
+	position:relative;
+}
+
+/*---------------------------------------------------------------------
+	CANVAS
+--------------------------------------------------------------------*/
+
+#page #container #board #notepad #notepad-show #canvas {
+	width:100%;
+	height:600px;
+	/*position:absolute;
+	top:0;
+	left:0;
+	float:left;*/
+	cursor:url(../img/cursors/pencil.png), auto;
+	-webkit-user-select:none;
+	user-select:none;
+	border-radius:5px;
+}
+
+#page #container #board #notepad #more {
+	width:100%; /* jquery */
+	height:20px;
+	background: -webkit-gradient(linear,0 0, 0 100%, from(#F7F7F7), to(#EFEFEF));
+	position:absolute;
+	border-top-radius:5px;	
+	bottom:0px;
+	right:0px;
+	float:left;
+	z-index:2;
+	text-align:center;
+	font:10px "Myriad Web Pro";
+	line-height:20px;
+	color:#999;
+	display:block;
+	cursor:pointer;
+	border-top:1px solid #CCC
+}
+
+#page #container #board #notepad #more:hover {
+	background: -webkit-gradient(linear,0 0, 0 100%, from(#EFEFEF), to(#F7F7F7));
+	color:#666
+}
+
+/*--------------------------------------------------------------------
+	BOX
+	------------------------------------------------------------*/
+	
+.box {
+	width:100%;
+	border:1px solid #D5D5D5;
+	margin-bottom:10px;
+}
+
+.box header{
+	width:100%;
+	height:30px;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #F6F6F6),color-stop(0.90, #FAFAFA));
+	border-bottom:1px solid #EAEAEA
+}
+
+.box header span{
+	margin-left:10px;
+	font:12px "Myriad Web Pro";
+	text-shadow:0px 1px 1px #FFF;
+	font-weight:bold;
+	line-height:28px;
+}
+
+.box .inner-box {
+	width:98%;
+	padding:1%;
+}
+
+.box input[type="search"] {
+	width:100%;
+	padding:10px;
+	height:40px;
+	margin-bottom:10px;
+	font:12px "Tahoma"
+}
+
+.box input[type="text"] {
+	width:98%;
+	padding:0% 1%;
+	height:36px;
+	margin-bottom:10px;
+	font:12px "Tahoma";
+}
+
+/*-------------------------------------------------------------------------------------------------------------------
+	BOX PAGES
+	-------------------------------------------------------------------------------------------------------------------*/
+
+.pages {
+	width: 100%;
+	margin:0 auto;
+	background:#FFF;
+	height:500px;
+}
+
+.pages table {
+	width:100%;
+	border-spacing:0px;
+	border-collapse:collapse;
+	font-family:"Lucida Sans";
+}
+
+.pages thead td{
+	background:#C00;
+	height:50px;
+}
+
+.pages table thead tr td {
+	padding-left:10px;
+	height:30px;
+	
+	background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(#EBEBEB),
+	to(#CDCDCD)
+	);
+	
+	font-size:11px;
+	font-family:"Lucida Sans" !important;
+	color:#333;
+	font-weight:bold;
+	text-shadow:0px 0px 1px #FFF;	
+}
+
+.pages table thead tr td:first-child {	
+	border-top-left-radius:5px;
+}
+
+.pages table thead tr td:last-child {	
+	border-top-right-radius:5px;
+}
+
+
+.pages table thead{
+	display:table-row-group;
+	border-bottom:1px solid #CCC;
+	
+	height:100px;
+}
+
+.pages table thead tr {
+	font-size:15px;
+	
+}
+
+.pages table thead tr:hover {
+	background:none;
+	cursor:default !important;
+}
+
+.pages table tr:hover {
+	background:#F4F4F4;
+	cursor:pointer
+}
+
+.pages table tr td {
+	font-family:"Lucida Sans";
+	border-bottom:1px solid #EBEBEB;
+	border-left:1px solid #EBEBEB;
+	border-right:1px solid #EBEBEB;
+	padding-left:10px;
+	height:30px;
+}
+
+.pages table td.name {
+	font-size:11px;
+	line-height:18px;
+	width:250px;
+}
+
+.pages table td.name .typefile {
+	background:url(/img/tango/16x16/mimetypes/text-x-generic.png) no-repeat left;
+	padding-left:17px;
+	height:20px;
+	float:left;
+	margin-right:2px;
+}
+
+.pages table td:hover .buttons {
+	display:block;
+}
+
+
+.pages table td.date {
+	font-size:11px;
+	color:#666
+}
+
+.pages table td .buttons {
+	background:transparent;
+	width:100px;
+	float:right;
+	height:16px;
+	display:none;
+}
+
+.pages table td .buttons ul {
+	list-style:none;
+	padding:0 !important;
+	height:16px !important;
+	line-height:normal;
+	margin:0px;
+}
+
+.pages table td .buttons ul li{
+	width:16px;
+	height:16px;
+	background:#00F;
+	float:right;
+	margin-right:5px;
+	margin-top:2px;
+}
+
+.pages table td .buttons ul li.delete{
+	background:url(/img/tango/16x16/actions/mail-mark-junk.png) no-repeat;
+}
+
+.pages table td .buttons ul li.share{
+	background:url(/img/tango/16x16/apps/internet-web-browser.png) no-repeat
+}
+
+.pages table td .buttons ul li.view{
+	background:url(/img/ui/eye.png) no-repeat;
+}
+
+.pages .page-img {
+	border:1px solid #EAEAEA;
+	-webkit-box-shadow:0px 1px 1px #F3F3F3
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------
+	VIEWERS
+	---------------------------------------------------------------------------------------------------------*/
+	
+.viewers {
+	width:150px;
+	position:absolute;
+	top:40px;
+	right:15px;
+	z-index:400;
+	background:#F9F9F9;
+	border:1px solid #E7EEEF;
+	padding:5px;
+	display:none;
+}
+
+.viewers .data-student {
+	width:100%;
+	height:30px;
+}
+
+.viewers .data-student .data-student-picture{
+	float:left;
+	margin-right:5px;
+}
+
+.viewers .data-student .data-student-picture img{
+	width:22px;
+	border:1px solid #FFF
+}
+
+.viewers .data-student .data-student-name{
+	float:left;
+	height:22px;
+	line-height:22px;
+	font-size:11px;
+	font-family:"Tahoma";
+	font-weight:bold;
+	text-shadow:0px 1px 1px #FFF;
+}
+
+/*---------------------------------------------------------------------
+	LEFT - RIGHT
+	--------------------------------------------------------------------*/
+	
+#page #container #board #left{
+	margin-right:-100%;
+	width:180px;
+	float:left;
+	height:500px;
+	position:relative;
+	z-index:300;
+	background:#FFF;
+	border-right:1px solid #D5D5D5
+}
+
+#page #container #board #right{
+	float:left;
+	width:100%;
+}
+
+#page #container #board #right #right-container {
+	margin-left:190px;
+	overflow:hidden;
+}
+
+/*---------------------------------------------------------------------
+	LEFT - OPTIONS
+	--------------------------------------------------------------------*/
+	
+#left .types {
+	padding:0;
+	list-style:none;
+}
+
+#left .types li {
+	width:100%;
+	height:20px;
+	font-size:11px;
+	font-family:"Tahoma";
+	line-height:20px;
+}
+
+#left .types li.active {
+	background:none
+}
+
+#left .types li:hover {
+	background:#F8F8F8;
+	cursor:pointer;
+}
+
+#left .types li.types-text {
+	width:100%;
+	height:20px;
+	font-size:11px;
+	font-family:"Tahoma";
+	line-height:20px;
+}
+
+#left .types li.types-text .icon-text {
+	width:16px;
+	height:16px;
+	background:#EAEAEA;
+	float:left;
+	margin-top:2px;
+	margin-right:10px;
+	margin-left:10px;
+	/*background:url(../img/icons/179-notepad.png) no-repeat center;
+	background-size:13px 13px;*/
+}
+
+#left .types li.types-draw {
+	width:100%;
+	height:20px;
+	font-size:11px;
+	font-family:"Tahoma";
+	line-height:20px;
+}
+
+#left .types li.types-draw .icon-draw {
+	width:16px;
+	height:16px;
+	background:#EAEAEA;
+	float:left;
+	margin-top:2px;
+	margin-right:10px;
+	margin-left:10px;
+	background:url(../img/icons/187-pencil.png) no-repeat center;
+	background-size:16px 16px;
+}
+
+	
+/*-----------------------------------------------------------------------------------------------------------
+	PAGE-NOTEBOOK
+	---------------------------------------------------------------------------------------------------------*/
+	
+.page-notebook {
+	float:left;
+	width:240px;
+	height:150px;
+	border:1px solid #D5D5D5;
+	overflow:hidden;
+	margin-right:10px;
+	margin-bottom:10px;
+	padding:5px;
+	position:relative;
+}
+
+.page-notebook .page-img {
+	width:200px;
+	height:100px;
+	margin:0px auto;
+	overflow:hidden;
+}
+
+.page-notebook .page-img img {
+	width:200px;
+	margin:0 auto;
+	
+}
+
+.page-notebook .page-caption {
+	position:absolute;
+	width:100%;
+	margin:0 auto;
+	height:30px;
+	background:#000;
+	bottom:0px;
+	left:0px;
+	background:#FAFAFA;
+	border-top:2px solid #EAEAEA;
+	padding:5px;
+}
+
+.page-notebook .page-caption .page-title {
+	font-family:"Tahoma";
+	font-size:11px;
+	background:url(../img/mini_icons2/document.gif) left center no-repeat;
+	padding-left:15px;
+	display:block;
+	color:#575757
+}
+
+.page-notebook .page-caption .page-date {
+	font-family:"Tahoma";
+	font-size:11px;
+	background:url(../img/mini_icons2/calendar_day.gif) left center no-repeat;
+	padding-left:15px;
+	display:block;
+	color:#575757
+}
+	
+
+/* ---- CLEAR --- */
+.clear {
+	clear:both;
+}
+

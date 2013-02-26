@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stendev</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="<%= style %>" />
+<link href='http:/stendev.comli.com/favicon.ico' rel='shortcut icon' type='image/x-icon'/>
+<link href='http://stendev.comli.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://fonts.googleapis.com/css?family=Cabin:bold' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<!--<script type="text/javascript" src="/script/wall.js"></script>-->
+<script type="text/javascript" src="/script/notebook.js"></script>
+<script type="text/javascript" src="/script/socket.io.js"></script>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script type="text/javascript">
+<!--setInterval('redraw_saved(" REC")',3000);-->
+$(document).ready( function(){
+	$('#btn_signup').click(function(){
+		$("#whiteboard").animate({
+			opacity:0
+			},500,function() {
+			
+				// Display none center
+				$("#whiteboard").css({
+					display:'none'
+					});
+					
+				// Display none center
+				$("#signin").css({
+					display:'none'
+					});
+					
+				$("#signup").css({
+					display:'block',
+					opacity:0
+					});
+					
+				$("#signup").animate({
+					opacity:1
+				},500);	
+				
+				$("#firstname").focus();
+				// Display signup
+	
+			});
+	});
+	
+	$('#btn_signin').click(function(){
+		$("#whiteboard").animate({
+			opacity:0
+			},500,function() {
+			
+				// Display none center
+				$("#whiteboard").css({
+					display:'none'
+					});
+					
+				$("#signup").css({
+					display:'none'
+					});
+					
+				$("#signin").css({
+					display:'block',
+					opacity:0	
+					});
+					
+				$("#signin").animate({
+					opacity:1,
+					"z-index":300
+				},500);	
+				
+				$("#firstname").focus();
+				// Display signup
+	
+			});
+	});
+	
+	
+	var whiteboard = new notebook($('#drawable'));
+	whiteboard.startupNotebook();
+	//whiteboard.animate("<%=draw%>");
+	//alert('<%=draw%>');
+	
+	$('#drawable').mousedown(function(event){
+		 whiteboard.mousedown(event);
+	});
+	
+	$('#drawable').mouseup(function(event){
+		 whiteboard.mouseup(event);
+	});
+	
+	$('#drawable').mousemove(function(event){
+		 whiteboard.mousemove(event);
+	});
+	
+	
+});
+
+
+
+</script>
+</head>
+<body>
+<div id="envoltura"> 
+
+
+  
+  <!-- Header -->
+  <div id="header">
+    <div class="login">
+      <ul class="loginUL">
+        <div class="fb_button" id="fb-login" style="float:left; background-position: left -188px;margin-top:3px">
+                <a href="/auth/facebook" style="text-decoration:none" class="fb_button_medium">        
+                  <span id="fb_login_text" class="fb_button_text"> 
+                    Entrar                   
+                  </span>                                    
+                </a>                                         
+        </div>
+    
+		<li id="btn_signup" style="margin-left:20px"><a  onclick="return false" href="#"><b>Regístrate</b></a>&nbsp;&nbsp;&nbsp;|</li>
+		<li><a id="btn_signin" href="#">Iniciar sesión</a></li>			
+        
+        <li style="float:right"><a href="/">stendev</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Searcher -->
+	<div id="whiteboard"> 
+    <img id="markers" src="/img/markers.png"/>
+  
+    <div class="logo"><img src="img/logos/logo_black.png" alt="Student Device"/></div>
+    
+    <canvas id="drawable"></canvas>
+    
+    <div class="cut" style="clear:both"></div>
+  </div>
+  
+  <section id="studying">
+  	<header>Están estudiando : </header>
+    
+    	<article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Física II</span>
+                <span class="course-place">1 estudiantes</span>
+            </section>
+    	</article>
+        
+        <article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Cálculo III</span>
+                <span class="course-place">3 estudiantes</span>
+            </section>
+    	</article>
+        
+        <article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Electrónica Digital II</span>
+                <span class="course-place">123 estudiantes</span>
+            </section>
+    	</article>
+        
+        <article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Historia Universal</span>
+                <span class="course-place">23 estudiantes</span>
+            </section>
+    	</article>
+        
+        <article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Historia del Perú</span>
+                <span class="course-place">33 estudiantes</span>
+            </section>
+    	</article>
+                
+  </section>
+  
+  <!-- Signin -->
+  <div id="signin">
+    <h3>I'm a stendev !</h3>
+    <table id="signup_table">
+      <form id="signin_form" name="signin" method="post" action="/">
+        <tr>
+          <td class="td_label"></td>
+          <td class="td_input"><input id="login_email" type="text" name="login_email" placeholder="E-mail"/></td>
+        </tr>
+        <tr>
+          <td class="td_label"></td>
+          <td class="td_input"><input id="login_pass" type="password" name="login_pass" placeholder="Contraseña"></td>
+        </tr>
+        <tr>
+          <td class="submit" colspan="2"><input class="btn" style="width:70px" type="submit" value="Entrar"></td>
+        </tr>
+      </form>
+    </table>
+  </div>
+  
+  <!-- Signup -->
+  <div id="signup">
+    <h3>Bienvenido a Stendev</h3>
+    <table id="signup_table">
+      <form name="signup_form" method="post" action="/"><!-- onsubmit="return false" -->
+        <tr>
+          <td class="td_label">Nombres : </td>
+          <td class="td_input"><input id="firstname" type="text" name="firstname"/></td>
+        </tr>
+        <tr>
+          <td class="td_label">Apellidos : </td>
+          <td class="td_input"><input id="lastname" type="text" name="lastname"></td>
+        </tr>
+        <tr>
+          <td class="td_label">E-mail : </td>
+          <td class="td_input"><input id="email" type="text" name="email"></td>
+        </tr>
+        <tr>
+          <td class="td_label">Contraseña : </td>
+          <td class="td_input"><input id="pass" type="password" name="pass"></td>
+        </tr>
+        <tr>
+          <td class="td_label">Universidad : </td>
+          <td class="td_input"><select id="university" name="university">
+              <!-- Generado con Python XD -->
+              <option value="0" selected="">Selecciona tu universidad</option>
+              
+              <!--<option value='1' data-icon='' data-html-text='Facultad de Teología Pontificia y Civil de Lima'>Facultad de Teología Pontificia y Civil de Lima</option>
+<option value='2' data-icon='' data-html-text='Universidad Alas Peruanas'>Universidad Alas Peruanas</option>
+<option value='3' data-icon='' data-html-text='Universidad Católica del Peru – PUCP'>Universidad Católica del Peru – PUCP</option>
+<option value='4' data-icon='' data-html-text='Universidad Católica Facultad de Artes'>Universidad Católica Facultad de Artes</option>
+<option value='5' data-icon='' data-html-text='Universidad de Ciencias y Humanidades'>Universidad de Ciencias y Humanidades</option>
+<option value='6' data-icon='' data-html-text='Universidad Científica del Sur'>Universidad Científica del Sur</option>-->
+              
+              <option value='Universidad de Lima' data-icon='' data-html-text='Universidad de Lima'>Universidad de Lima</option>
+               <option value='Universidad Inca Garcilazo de La Vega' data-icon='' data-html-text='Universidad Inca Garcilazo de La Vega'>Universidad Inca Garcilazo de La Vega</option>
+              
+              <!--<option value='8' data-icon='' data-html-text='Universidad del Pacífico'>Universidad del Pacífico</option>
+<option value='9' data-icon='' data-html-text='Universidad Femenina del Sagrado Corazón – UNIFE'>Universidad Femenina del Sagrado Corazón – UNIFE</option>
+<option value='10' data-icon='' data-html-text='Universidad Inca Garcilaso de La Vega'>Universidad Inca Garcilaso de La Vega</option>
+<option value='11' data-icon='' data-html-text='Universidad Nacional Agraria La Molina'>Universidad Nacional Agraria La Molina</option>
+<option value='12' data-icon='' data-html-text='Universidad Nacional Agraria de la Selva'>Universidad Nacional Agraria de la Selva</option>
+<option value='13' data-icon='' data-html-text='Universidad Nacional de Ingeniería – UNI'>Universidad Nacional de Ingeniería – UNI</option>
+<option value='14' data-icon='' data-html-text='Universidad Nacional del Callao'>Universidad Nacional del Callao</option>
+<option value='15' data-icon='' data-html-text='Universidad Nacional Federico Villarreal'>Universidad Nacional Federico Villarreal</option>
+<option value='16' data-icon='' data-html-text='Universidad Nacional José Fautino Sanchez Carrión (Huacho)'>Universidad Nacional José Fautino Sanchez Carrión (Huacho)</option>
+<option value='17' data-icon='' data-html-text='Universidad Nacional Mayor de San Marcos'>Universidad Nacional Mayor de San Marcos</option>
+<option value='18' data-icon='' data-html-text='Universidad Nacional Tecnológica del Cono Sur de Lima'>Universidad Nacional Tecnológica del Cono Sur de Lima
+</option>
+<option value='19' data-icon='' data-html-text='Universidad Norbert Wiener'>Universidad Norbert Wiener</option>
+<option value='20' data-icon='' data-html-text='Universidad Particular Inca Garcilazo de la Vega'>Universidad Particular Inca Garcilazo de la Vega</option>
+<option value='21' data-icon='' data-html-text='Universidad Peruana Cayetano Heredia'>Universidad Peruana Cayetano Heredia</option>
+<option value='22' data-icon='' data-html-text='Universidad Particular de Chiclayo'>Universidad Particular de Chiclayo</option>
+<option value='23' data-icon='' data-html-text='Universidad Peruana de Ciencias Aplicadas – UPC'>Universidad Peruana de Ciencias Aplicadas – UPC</option>
+<option value='24' data-icon='' data-html-text='Universidad Peruana de Las Américas'>Universidad Peruana de Las Américas</option>
+<option value='25' data-icon='' data-html-text='Universidad Peruana Union'>Universidad Peruana Union</option>
+<option value='26' data-icon='' data-html-text='Universidad Ricardo Palma'>Universidad Ricardo Palma</option>
+<option value='27' data-icon='' data-html-text='Universidad San Ignacio de Loyola'>Universidad San Ignacio de Loyola</option>
+<option value='28' data-icon='' data-html-text='Universidad San Martín de Porres'>Universidad San Martín de Porres</option>
+<option value='29' data-icon='' data-html-text='Universidad Tecnológica del Perú'>Universidad Tecnológica del Perú</option>
+-->
+              
+            </select></td>
+        </tr>
+        <tr>
+          <td class="td_label">Carrera : </td>
+          <td class="td_input"><input id="career" type="text" name="career"></td>
+        </tr>
+        <tr>
+          <td class="submit" colspan="2"><input type="submit" class="btn" style="width:100px" value="Registrarse"></td>
+        </tr>
+      </form>
+    </table>
+  </div>
+  <div class="push"></div>
+</div>
+
+<footer>
+<div id="credits">
+Stendev © 2011 | Student Device
+	<span class="author" style="float:right"> &raquo;<b> Daniel Flores</b> did it</span>
+</div>
+</footer>
+</body>
+</html>
+
+

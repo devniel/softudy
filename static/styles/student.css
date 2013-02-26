@@ -1,0 +1,673 @@
+*{
+	border:0;
+	margin:0;
+	outline:0;
+	font-family:"Myriad Web Pro";
+	
+}
+
+html {
+	min-width:1000px;
+	height:100%
+}
+body {
+	
+	height:100%;
+	background:#F0F2F2;
+}
+
+/*---------------------------------------------------------------------
+ OTROS
+ ----------------------------------------------------------------------*/
+
+#envoltura {
+	min-height:100%;
+	height:auto !important;
+	heigth:100%;
+	margin:0 auto -40px;
+	width:98%;
+	}
+	
+#envoltura #header {
+	width:100%;
+	height:50px;
+	margin-bottom:5px;
+	background:#2b3845;
+	margin-top:-10px;
+	border-radius:4px;
+	-moz-box-shadow: 0 0 5px #868E9B;
+	-webkit-box-shadow: 0 0 5px #868E9B;
+	box-shadow: 0 0 5px #868E9B;
+}
+
+/*---------------------------------------------------------------------
+	USUARIO
+	--------------------------------------------------------------------*/
+#envoltura #header #usuario_dentro {
+	width:990px;
+	height:40px;/*antes 110*/
+	background:transparent;
+	padding:0px 2px;
+	padding-top:8px;
+	}
+
+#envoltura #header #usuario_dentro #usuario_detalles{
+	height:30px; /*antes 100*/
+	background:transparent;
+	
+	padding:5px;
+	float:left;
+}
+
+#envoltura #header #usuario_dentro #usuario_detalles #usuario_imagen {
+	float:left;
+	height:30px;/*antes 100*/
+	background:white;
+	width:30px;
+}
+
+#envoltura #header #usuario_dentro #usuario_detalles #usuario_informacion {
+	float:left;
+	height:30px;/*antes 100*/
+	background:transparent;
+	text-align:left;
+	font:8px verdana;
+	padding-left:5px;
+	padding-right:5px;
+	border-right:1px solid #37575E;
+}
+
+#envoltura #header #usuario_dentro #usuario_detalles #usuario_informacion h2.nick{
+	color:#FFF;	
+	font:9px verdana;
+	margin-top:-2px;
+	margin-bottom:2px;
+	
+}
+
+#envoltura #header #usuario_dentro #usuario_detalles #usuario_informacion h4.universidad, h4.carrera{
+	color:silver;	
+	margin-top:-3px;
+	margin-left:10px;
+	font:9px verdana;
+	}
+
+#envoltura #header #usuario_dentro #search {
+	float:left;
+	
+	line-height:30px;
+	margin-top:7px;
+}
+
+#envoltura #header #usuario_dentro #search input.txtSearch {
+	height:25px;
+}
+
+
+/*---------------------------------------------------------------------
+	OPTIONS
+	--------------------------------------------------------------------*/
+	
+#envoltura #header #usuario_dentro ul.options {
+	list-style:none;
+}
+
+#envoltura #header #usuario_dentro ul.options li {
+	float:left;
+	margin-left:10px;
+	line-height:38px;
+}
+
+#envoltura #header #usuario_dentro ul.options li span{
+	text-decoration:none;
+	color : #CCC;
+	font:11px Verdana;
+	}
+	
+#envoltura #header #usuario_dentro ul.options li span:hover{
+	text-decoration:underline;
+	cursor:pointer;
+	}
+
+
+/*---------------------------------------------------------------------
+	LOGO
+	--------------------------------------------------------------------*/
+
+#envoltura #header #logo {
+	font:20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#FFF;
+	float:right;
+	padding-top:15px;
+	padding-right:10px;
+	
+}
+
+#envoltura #header #logo a {
+	color:#FFF;
+	text-decoration:none;
+}
+
+/*---------------------------------------------------------------------
+	CONTAINER
+	--------------------------------------------------------------------*/
+	
+#envoltura #container {
+	width:100%;
+	margin-top:10px;
+}
+
+/*---------------------------------------------------------------------
+	CONTAINER COLUMNS  | REPETIDO
+	--------------------------------------------------------------------*/
+	
+	#envoltura #container #explorer {
+	width:150px;
+	float:left;
+	border-right:1px solid #CCC;
+	height:500px;
+	}
+	
+	#envoltura #container #stendev{
+      	width:700px;
+	float:left;
+	height:1000px;
+	/*padding:0px 10px 10px 10px;*/
+	padding:0;
+	position:relative;
+	background:transparent;
+	margin-left:10px;
+}
+	
+	#envoltura #container  #right-column {
+	float:right;
+	width:50px;
+	border-left:1px solid #000;
+	height:600px;
+	
+}
+
+/*---------------------------------------------------------------------
+	LEFT - COLUMN
+	--------------------------------------------------------------------*/
+	
+#explorer ul{
+	list-style:none;
+	padding:0;
+}
+
+#explorer ul li{
+	font:12px "Myriad Web Pro";
+}
+
+
+#explorer #courses {
+	width:100%;
+}
+	
+
+/*---------------------------------------------------------------------
+	Stendev - Apps
+--------------------------------------------------------------------*/
+
+/* Main DIV, this contein apps */
+#stendev #apps {
+	width:77%;
+	height:100%;
+	background:transparent;
+	float:left;
+	margin-right:3%;
+	position:relative;
+	}
+
+#stendev #miniApps {
+	width:170px;
+	height:100%;
+	float:left;
+	border-left:1px solid #CCC;
+	padding-left:10px;
+	}
+
+
+/*---------------------------------------------------------------------
+	Stendev - Daily
+--------------------------------------------------------------------*/
+
+#stendev #apps .daily {
+	width:100%;
+	height:100%;
+	background:#F0F2F2;
+	float:left
+
+	}
+	
+#stendev #apps .daily .publish {
+	width:100%;
+	border:1px solid #d8d8d8;
+	resize:none;
+	border-radius:3px;
+	overflow:hidden;
+	outline:none;
+	-moz-box-shadow: 0 0 5px #e2e2e2;
+	-webkit-box-shadow: 0 0 5px #e2e2e2;
+	box-shadow: 0 0 5px #e2e2e2;
+	font:12px "Myriad Web Pro";
+	padding:5px;
+	height:30px;
+	}
+	
+
+#stendev #apps .daily #btn_publish, .button_submit {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 12px "Arial";
+	padding: 5px 15px;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 1px #CCC;
+	color: #fef4e9;
+	border: solid 1px #5993a5;
+	background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(112,141,150)),
+    color-stop(0.61, rgb(112,141,150))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(112,141,150) 0%,
+    rgb(112,141,150) 61%
+);
+	
+}
+
+#stendev #apps .daily #posts .post {
+	margin-top:5px;
+	/*width:210px;*/
+	width:100%;
+	background:transparent;
+	padding:1%;
+	border-bottom:2px solid #CCC
+	
+}
+
+#stendev #apps .daily #posts .post span.fecha{
+	float:right;
+	font:10px "Myriad Web Pro";
+	
+	margin-top:10px;
+
+}
+
+#stendev #apps .daily #posts .post span.comments{
+	float:left;
+	font:10px tahoma;
+	color:#F00;
+}
+
+#stendev #apps .daily #posts .post .message_post .post_avatar {
+	float:right;
+	display:inline;
+	margin-top:-5px;
+	margin-bottom:5px;
+	
+}
+
+#stendev #apps .daily #posts .post .message_post .post_avatar img {
+	float:right;
+	display:inline;
+	border-radius:2px;
+	border:1px solid #93BDC6;
+	width:30px;
+	height:30px;
+}
+
+#stendev #apps .daily #posts .post .message_post{
+	width:100%;
+	float:left;
+	display:inline;
+	font:11px "Myriad Web Pro";
+	color:#666;
+}
+
+#stendev #apps .daily #posts .post .message_post span.student{
+	font:11px "Myriad Web Pro";
+	font-style:normal;
+	font-weight:700;
+	color:#333
+	
+}
+
+#stendev #apps .daily #posts .post .comments_post{
+	width:100%;
+	float:left;
+	display:inline;
+	font:10px "Myriad Web Pro";
+	color:#666;
+	background:transparent;
+	margin-top:5px;
+}
+
+#stendev #apps .daily #posts .post a.comments{
+	text-decoration:none;
+	float:right;
+	font:10px "Myriad Web Pro";
+	color:#395566;
+	padding:0px 15px 0px 0px;
+	background:url(../img/icons/comments.png) no-repeat right;
+
+}
+
+#stendev #apps .daily #posts .post span.message_date{
+	text-decoration:none;
+	float:left;
+	font:10px "Myriad Web Pro";
+	color:#395566;
+	padding:0px 0px 0px 15px;
+	background:url(../img/icons/date.gif) no-repeat left ;
+
+}
+
+#stendev #apps .daily #posts .post .comments_post .comments_div {
+	width:100%;
+	background:#D7DEE2;
+	margin-top:15px;
+	position:relative;
+}
+
+#stendev #apps .daily #posts .post .comments_post .comments_div .comment {
+				display:block;
+				width:98%;
+				margin:0 auto;
+				padding:1%;
+				border-bottom:1px dashed #666;
+}
+
+#stendev #apps .daily #posts .post .comments_post .comments_div .comment .comment_avatar img {
+	float:left;
+	display:inline;
+	border-radius:2px;
+	border:1px solid #93BDC6;
+	width:30px;
+	height:30px;
+	margin-right:5px;
+	
+}
+
+#stendev #apps .daily #posts .post .comments_post .comments_div .commentIt{
+	width:96%;
+	margin: 0 auto;
+	margin-top:5px;
+}
+
+#stendev #apps .daily #posts .post .comments_post .comments_div .commentIt textarea.comment_textarea{
+	padding:2%;
+	
+	width:96%;
+	margin-bottom:5px;
+	font:12px "Myriad Web Pro";
+	line-height:15px;
+}
+
+#stendev #apps .daily #posts .post .comments_post .comments_div .commentIt .btnComment{
+	width:61px;
+	height:21px;
+	background:url(../img/buttons/comment.png) no-repeat;
+	float:right;
+	margin-bottom:5px;
+}
+
+#stendev #apps .daily #posts .post .comments_post .comments_div .commentIt .btnComment:hover{
+	cursor:pointer;
+}
+
+/*----------------------------------------------------------------------------------------------------
+	PROFILE
+-----------------------------------------------------------------------------------------------*/
+
+#stendev #apps .profile {
+	width:100%;
+	background:transparent;
+	float:left;
+	margin-right:3%;
+	}
+
+#stendev #apps .profile .data {
+	font-size:13px;
+	height:30px;
+	padding:10px;
+	border-bottom:1px solid #cccccc;
+	}
+#stendev #apps .profile .data:hover {
+	background:#dbdbdb;
+	cursor:pointer;
+	}
+#stendev #apps .profile .data .data_lbl {
+	
+	}
+
+#stendev #apps .profile .data .data_ct {
+	float:right;
+	}
+#stendev #apps .profile .data .form_avatar{
+	text-align:right;
+	background:transparent;
+	}
+	
+/* Provisional */
+
+.box_father {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.5;
+	}	
+.box {
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:600px;
+	height:200px;
+	margin-left:-450px;
+	margin-top:-120px;
+	text-align:center;
+	background:#CCC;
+	z-index:2;
+	opacity:1;
+	}
+
+#stendev #apps .profile .data #form-avatar {
+	width:100%;
+	text-align:right;
+	}
+	
+#stendev #apps .profile .data #form-avatar label {
+	color:#999;
+	}
+#stendev #apps .profile .data #form-avatar .submit_avatar{
+	background:#efefef;
+	border:1px solid #CCC;
+	padding:5px 15px;
+	color:#333;
+	}
+
+/*---------------------------------------------------------------------
+	COURSES
+	--------------------------------------------------------------------*/
+
+#stendev #apps .courses {
+	width:100%;
+	height:600px;
+	background:#F0F2F2;
+	float:left;
+	margin-right:3%;
+	font-size:13px;
+	display:block
+	}
+	
+#stendev #apps .courses .menuBar {
+	width:100%;
+	height:30px;
+	float:left;
+	border-bottom:1px inset #CCC
+}
+	
+#stendev #apps .courses .menuBar ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+#stendev #apps .courses .menuBar ul li{
+	float:left;
+	width:20px;
+	height:20px;
+	margin:5px;
+}
+
+#stendev #apps .courses .menuBar ul li.btnAddCourse {
+	background:url(../img/icons/btnAddCourse.png) no-repeat top;
+}
+
+#stendev #apps .courses .menuBar ul li.titleApp {
+	float:right;
+	width:auto;
+	font:25px "Myriad Web Pro";
+	margin-top:-2px;
+}
+
+
+#stendev #apps .listCourses {
+	width:100%;
+	float:left;
+}
+
+#stendev #apps .listCourses ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+#stendev #apps .listCourses ul li{
+	height:50px;
+}
+
+#stendev #apps .listCourses ul li:hover{
+	height:50px;
+	background:#E9E9E9;
+}
+
+#stendev #apps .listCourses ul li.formAddCourse {
+	width:100%;
+	border-bottom:1px solid #CCC
+}
+
+#stendev #apps .listCourses ul li.formAddCourse .iconAddCourse {
+	height:32px;
+	width:32px;
+	margin:9px;
+	float:left;
+	background:url(../img/icons/addCourse.png) no-repeat bottom;
+}
+
+#stendev #apps .listCourses ul li.formAddCourse input, .btnSubmitCourse {
+	margin-top:13px;
+	height:25px;
+	padding:0;
+	padding-left:5px;
+	margin-left:10px;
+	margin-right:10px;
+}
+#stendev .addCourses {
+	font-size:13px
+}
+
+#stendev .addCourses:hover {
+	text-decoration:underline;
+	cursor:pointer;
+	}
+	
+#stendev #apps .listCourses ul li.course{
+	height:50px;
+	border-bottom:1px solid #CCC
+}
+
+#stendev #apps .listCourses ul li.course ul {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+
+#stendev #apps .listCourses ul li.course ul li{
+	float:left;
+}
+
+#stendev #apps .listCourses ul li.course ul li.iconCourse {
+	height:32px;
+	width:32px;
+	margin:9px;
+	background:url(../img/icons/course.png) no-repeat bottom;
+}
+
+#stendev #apps .listCourses ul li.course ul li.nameCourse, li.postsCourse, li.schoolCourse, li.rangeCourse {
+	margin-left:10px;
+	line-height:50px;
+}
+
+
+	
+.btn {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 12px "Arial";
+	padding: 5px 15px;
+	border-radius:3px;
+	color: #666;
+	border: solid 1px #D6D6D6;
+	background:#EFEFEF
+}
+
+#stendev #miniApps .notes .note {
+	background:url('../img/icons/note.png');
+	width:40px;
+	height:40px;
+	float:left;
+	margin-top:5px;
+	margin-right:5px;
+	font-size:5px;
+	padding-top:10px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+
+#stendev #miniApps .notes .note:hover {
+	background:url('../img/icons/bigNote.png');
+	width:80px;
+	height:80px;
+	float:left;
+	margin-top:5px;
+	margin-right:5px;
+	font-size:10px;
+	padding-top:20px;
+	padding-left:10px;
+	padding-right:10px;
+	cursor:pointer;
+	z-index:5;
+	position:absolute;
+}
+

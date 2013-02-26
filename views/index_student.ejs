@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stendev</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/styles/index.css" />
+<link href='/img/favicon.png' rel='shortcut icon' type='image/x-icon'/>
+<link href='/img/favicon.png' rel='icon' type='image/x-icon'/>
+<link href='http://fonts.googleapis.com/css?family=Cabin:bold' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	$("#searcher input").focus(function(){
+		$("#searcher .bgInput").css({
+			color:"#D5D5D5"
+		});
+	});
+	
+	$("#searcher input").keydown(function(){
+		$("#searcher .bgInput").css({
+			color:"#FFF"
+		});
+	});
+}
+</script>
+</head>
+<div id="envoltura">
+
+	<!------------------------- User --------------------------->
+ 
+	<div id="header">
+		<div class="login">
+			<ul id="user">
+				<li id="name"><img style="float:left" width="30px" height="30px" src="<%=student.avatar%>"><div style="float:left;height:30px;font:12px 'Myriad Web Pro';line-height:1;margin-left:10px;padding-top:2px" class="username"><%=student.firstname + " " + student.lastname %><br/><%=student.university%></div>
+                </li>
+                <li class="active"><a href="/me">Yo</a></li>
+            	<li class="active"><a href="/stenpad">Notebook</a></li>
+              
+                <li class="active"><a href="/stenpad">Plugins</a></li>
+               
+                <li><a href="/news">Sketchboard</a></li>
+                <li><a href="/school">School</a></li>
+			</ul>
+		</div>
+        <a class="logout" href="/logout">Salir</a>
+	</div>
+	
+	<!------------------------- Searcher --------------------------->
+	
+ 	<div id="whiteboard"> 
+  	<img id="markers" src="/img/markers.png"/>
+    <div class="logo"><img src="img/logos/logo_black.png" alt="Student Device"/></div>
+    
+    <div id="searcher">
+    	<h2>Hola <%=student.name%></h2>
+        <span class="bgInput">¿Qué estás estudiando?</span>
+    	<form method="post" action="/">
+        	<input name="studying" type="text" autofocus/>
+        </form>
+    </div>
+    
+    <div class="cut" style="clear:both"></div>
+  </div>
+  
+  <section id="studying">
+  	<header>Están estudiando : </header>
+    
+    	<article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Física II</span>
+                <span class="course-place">1 estudiantes</span>
+            </section>
+    	</article>
+        
+        <article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Cálculo III</span>
+                <span class="course-place">3 estudiantes</span>
+            </section>
+    	</article>
+        
+        <article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Electrónica Digital II</span>
+                <span class="course-place">123 estudiantes</span>
+            </section>
+    	</article>
+        
+        <article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Historia Universal</span>
+                <span class="course-place">23 estudiantes</span>
+            </section>
+    	</article>
+        
+        <article class="course">
+        	<section class="course-img"></section>
+            <section class="course-desc">
+            	<span class="course-name">Historia del Perú</span>
+                <span class="course-place">33 estudiantes</span>
+            </section>
+    	</article>
+                
+  </section>
+  
+  
+    <div class="push"></div>
+</div>
+
+<footer>
+<div id="credits">
+Stendev © 2011 | Students and Developers
+	<span class="author" style="float:right"> &raquo;<b> Daniel Flores</b> did it</span>
+</div>
+</footer>
+
+</body>
+</html>

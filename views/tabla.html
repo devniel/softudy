@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<style type="text/css">
+
+table {
+	width:1000px;
+	border-spacing:0px;
+	border-collapse:collapse;
+	font-family:"Myriad Web Pro";
+}
+
+table td {
+	padding-left:10px;
+	height:20px;
+}
+
+table thead{
+	display:table-row-group;
+	border-bottom:1px solid #CCC;
+	height:100px;
+}
+
+table thead tr {
+	font-size:15px;
+}
+
+table thead tr:hover {
+	background:none;
+	cursor:default !important;
+}
+
+table tr:hover {
+	background:#F4F4F4;
+	cursor:pointer
+}
+
+
+table td.name {
+	font-size:12px;
+	line-height:18px;
+	width:250px;
+}
+
+table td.name .typefile {
+	background:url(../static/img/tango/16x16/mimetypes/text-x-generic.png) no-repeat left;
+	padding-left:17px;
+	height:20px;
+	float:left;
+	margin-right:2px;
+}
+
+table td:hover .buttons {
+	display:block;
+}
+
+
+table td.date {
+	font-size:12px;
+	color:#666
+}
+
+table td .buttons {
+	background:transparent;
+	width:100px;
+	float:right;
+	height:16px;
+	display:none;
+}
+
+table td .buttons ul {
+	list-style:none;
+	padding:0 !important;
+	height:16px !important;
+	line-height:normal;
+	margin:0px;
+}
+
+table td .buttons ul li{
+	width:16px;
+	height:16px;
+	background:#00F;
+	float:right;
+	margin-right:5px;
+	margin-top:2px;
+}
+
+table td .buttons ul li.delete{
+	background:url(../static/img/tango/16x16/actions/mail-mark-junk.png) no-repeat;
+}
+
+table td .buttons ul li.share{
+	background:url(../static/img/tango/16x16/apps/internet-web-browser.png) no-repeat
+}
+
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
+<script type="text/javascript">
+
+window.onload = function(){
+
+	$(".delete").click(function(){
+		alert(":o");		
+	});
+	
+	$(".share").click(function(){
+		alert("http://stendev.com/pg=8594");	
+	});
+	
+}
+</script>
+
+</head>
+
+<body>
+
+<table>
+
+<thead>
+	<td>Nombre</td>
+    <td>Fecha</td>
+</thead>
+
+<tbody>
+	<tr>
+    	<td class="name"><span class="typefile"></span>Cara
+        <span class="buttons">
+        <ul>
+        <li class="delete"></li>
+        <li class="share"></li>
+        </ul>     
+        </span>
+        </td>
+        
+        <td class="date">21/02/2011 3:22 p.m.</td>
+        
+    </tr>
+    
+    <tr>
+    	<td class="name"><span class="typefile"></span>Cara
+        <span class="buttons">
+        <ul>
+        <li class="delete"></li>
+        <li class="share"></li>
+        </ul>     
+        </span>
+        </td>
+        
+        <td class="date">21/02/2011 3:22 p.m.</td>
+    </tr>
+    
+    <tr>
+    	<td class="name"><span class="typefile"></span>Cara
+        <span class="buttons">
+        <ul>
+        <li class="delete"></li>
+        <li class="share"></li>
+        </ul>     
+        </span>
+        </td>
+        
+        <td class="date">21/02/2011 3:22 p.m.</td>
+    </tr>
+    
+    <tr>
+    	<td class="name"><span class="typefile"></span>Cara
+        <span class="buttons">
+        <ul>
+        <li class="delete"></li>
+        <li class="share"></li>
+        </ul>     
+        </span>
+        </td>
+        <td class="date">21/02/2011 3:22 p.m.</td>
+    </tr>
+</tbody>
+
+</table>
+
+<style type="text/css">
+
+/*.dialog {
+	width:300px;
+	height:200px;
+	background:#F4F4F4;
+	border:1px solid #DFE3EA;
+	border-radius:2px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-100px;
+	margin-left:-150px;
+}*/
+
+</style>
+<div class="dialog">
+
+</div>
+</body>
+</html>

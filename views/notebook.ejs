@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stendev</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/styles/notebook.css" />
+<link href='http:/stendev.comli.com/favicon.ico' rel='shortcut icon' type='image/x-icon'/>
+<link href='http://stendev.comli.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<script type="text/javascript" src="/script/notebook.js"></script>
+<script type="text/javascript" src="/script/autoTextArea.js"></script>
+<script type="text/javascript" src="/script/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="/script/jquery.masonry.min.js"></script>
+
+<script type="text/javascript" src="/script/jquery-ui-1.8.10.custom.min.js"></script>
+
+<script type="text/javascript" src="/script/socket.io.js"></script>
+
+<script type="text/javascript" src="/script/youtube.js"></script>
+<script type="text/javascript" src="/script/reply.js"></script>
+<script type="text/javascript" src="/script/replyThis.js"></script>
+<script type="text/javascript" src="/script/question.js"></script>
+<script type="text/javascript" src="/script/getStudent.js"></script>
+<script type="text/javascript" src="/script/receptor.js"></script>
+	<!-- Actions -->
+	<script type="text/javascript" src="/script/actions/enter.js"></script>
+    <script type="text/javascript" src="/script/actions/_enter.js"></script>
+    
+    <script type="text/javascript" src="/script/actions/disconnect.js"></script>
+    <script type="text/javascript" src="/script/actions/_getStudent.js"></script>
+    <script type="text/javascript" src="/script/actions/newQuestion.js"></script>
+    <script type="text/javascript" src="/script/actions/getAnswer.js"></script>
+    <script type="text/javascript" src="/script/actions/_reply.js"></script>
+    <script type="text/javascript" src="/script/actions/_post.js"></script>
+    <script type="text/javascript" src="/script/actions/_getComments.js"></script>
+    <script type="text/javascript" src="/script/actions/_comment.js"></script>
+    <script type="text/javascript" src="/script/actions/_msgChat.js"></script>
+    <script type="text/javascript" src="/script/actions/_url.js"></script>
+
+<script type="text/javascript" src="/script/scribook/redraw_saved.js"></script>   
+<script type="text/javascript" src="/script/resizer.js"></script>
+
+<script type="text/javascript" src="/script/scriba/scriba.js"></script>
+<script type="text/javascript" src="/script/scriba/options.js"></script> 
+<script type="text/javascript" src="/script/scriba/colors.js"></script> 
+<script type="text/javascript" src="/script/scriba/send.js"></script>
+
+<script type="text/javascript" src="/script/user-tools.js"></script> 
+
+<script type="text/javascript" src="/script/stenpad/tools.js"></script>
+<script type="text/javascript" src="/script/paget.js"></script>
+
+<script type="text/javascript">
+
+var socket = new io.Socket(null, {rememberTransport: false, port:80});
+socket.connect();
+
+// Cuaderno
+var cuaderno;
+	
+// Students info.
+	var student = {
+		name : "<%=student.name%>",
+		firstname : "<%=student.firstname%>",
+		lastname : "<%=student.lastname%>",
+		id : "<%=student.id%>",
+		facebook : "<%=student.facebook%>",
+		fbID : "<%=student.fbID%>",
+		email : "<%=student.email%>",
+		university : "<%=student.university%>",
+		career : "<%=student.career%>",
+		avatar : "<%=student.avatar%>",
+		studying : "<%=student.studying%>",
+		nb : "<%=nb_student.id%>",
+		route : "notebook"
+		}
+	
+	student.action = "enter";
+	socket.send(student);
+	receptor(socket,student);
+
+window.onunload = function(){
+	student.action = "disconnect";
+	socket.send(student);
+};
+
+	
+$(document).ready( function() {
+	
+	cuaderno = new notebook($('#canvas'));
+	cuaderno.startupNotebook();
+	
+	$('#canvas').mousedown(function(event){
+		cuaderno.mousedown(event);
+	});
+	
+	$('#canvas').mouseup(function(event){
+		cuaderno.mouseup(event);
+	});
+	
+	$('#canvas').mousemove(function(event){
+		cuaderno.mousemove(event);
+	});
+	
+	//cuaderno.background();
+	
+	startTools(cuaderno);
+	
+	
+	$(".opt-viewers").click(function(){
+			$(".viewers").toggle("fast");
+		
+	});	
+	
+});
+
+window.onresize = function(){
+	resizer("onresize");
+}
+
+
+</script>
+</head>
+<body>
+<div id="header">
+        <div id="logo"><img src="/img/logos/logo2.png" height="23" /></div>
+        
+        <div id="menu">
+        	<ul>
+            	<li class="user"><img src="<%=student.avatar%>" width="20" height="20"/><a href="/"><%= student.name %></a></li>
+            	<li><a href="/nb?id=<%=student.id%>">Cuaderno</a></li>
+                 <li><a href="/slate?id=<%=student.id%>">Pizarra</a></li>
+                 <li><a href="/plugins">Extensiones</a></li>
+            </ul>
+        </div>     
+</div>
+
+<div id="page">
+	<div id="container">
+    
+    <header>
+      <span>Cuaderno de <%=nb_student.name%></span>
+      
+      <nav>
+      <ul>
+      	<li class="opt-saved"><a href="/nb?id=<%=nb_student.id%>&pg=fl">Archivos</a></li>
+        <li class="opt-viewers">0</li>
+      </ul>
+      </nav>
+      
+    </header>
+    
+    <div class='viewers'>
+        <section>
+        </section>
+    </div>
+
+       
+    <div id="board">
+            
+              	<div id="notepad">
+                	<div id="notepad-tools">
+                            <button class="notepad-tool pencil" title="Lapiz"></button>
+                            <button class="notepad-tool eraser" title="Borrador"></button>
+                            <button class="notepad-tool maximize disabled"></button>
+                            <button class="notepad-tool minimize disabled"></button>
+                            <button class="notepad-tool blank" title="Nueva hoja"></button>
+                            <button class="notepad-tool save" title="Guardar hoja"></button>
+                            <button class="notepad-tool animate" title="Reproducir"></button>
+                    </div>
+                	<div id="notepad-show">
+                        <canvas id="canvas">
+                            Tu navegador no soporta la etiqueta canvas.
+                        </canvas>
+                    </div>
+                	<div id="more">Más hoja</div>
+                </div>
+           	</div>                               
+     </div>                                      
+</div>
+
+<div class="cut"></div>
+</div>
+
+<div id="tooltip"></div>
+</body>
+</html>
+<!--<table>
+				<thead>
+				<td>Nombre</td>
+				<td>Fecha</td>
+				</thead>
+				<tbody>
+				<tr class="pageSaved" data-id="' + replies[x].id + '">
+				<td class="name"><span class="typefile"></span>
+				<span class="buttons">
+				<ul>
+				<li class="delete"></li>
+				<li class="share"></li>
+				<li class="view"></li>
+				</ul>
+				</span>
+				</td>
+				<td class="date"></td>
+				</tr>
+				</tbody>
+</table>-->

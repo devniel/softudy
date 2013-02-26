@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stendev | For students, by students.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/styles/me.css" />
+<link href='http:/stendev.comli.com/favicon.ico' rel='shortcut icon' type='image/x-icon'/>
+<link href='http://stendev.comli.com/favicon.ico' rel='icon' type='image/x-icon'/>
+
+<script type="text/javascript" src="/script/notebook.js"></script>
+<script type="text/javascript" src="/script/autoTextArea.js"></script>
+<script type="text/javascript" src="/script/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="/script/jquery.masonry.min.js"></script>
+
+<script type="text/javascript" src="/script/jquery-ui-1.8.10.custom.min.js"></script>
+
+<script type="text/javascript" src="/script/socket.io.js"></script>
+
+<script type="text/javascript" src="/script/youtube.js"></script>
+<script type="text/javascript" src="/script/reply.js"></script>
+<script type="text/javascript" src="/script/replyThis.js"></script>
+<script type="text/javascript" src="/script/question.js"></script>
+<script type="text/javascript" src="/script/getStudent.js"></script>
+<script type="text/javascript" src="/script/receptor.js"></script>
+	<!-- Actions -->
+	<script type="text/javascript" src="/script/actions/enter.js"></script>
+    <script type="text/javascript" src="/script/actions/_enter.js"></script>
+    <script type="text/javascript" src="/script/actions/disconnect.js"></script>
+    <script type="text/javascript" src="/script/actions/_getStudent.js"></script>
+    <script type="text/javascript" src="/script/actions/newQuestion.js"></script>
+    <script type="text/javascript" src="/script/actions/getAnswer.js"></script>
+    <script type="text/javascript" src="/script/actions/_reply.js"></script>
+    <script type="text/javascript" src="/script/actions/_post.js"></script>
+    <script type="text/javascript" src="/script/actions/_getComments.js"></script>
+    <script type="text/javascript" src="/script/actions/_comment.js"></script>
+    <script type="text/javascript" src="/script/actions/_msgChat.js"></script>
+    <script type="text/javascript" src="/script/actions/_url.js"></script>
+    <script type="text/javascript" src="/script/actions/_search.js"></script>
+
+<script type="text/javascript" src="/script/scribook/redraw_saved.js"></script>   
+<script type="text/javascript" src="/script/resizer.js"></script>
+
+<script type="text/javascript" src="/script/scriba/scriba.js"></script>
+<script type="text/javascript" src="/script/scriba/options.js"></script> 
+<script type="text/javascript" src="/script/scriba/colors.js"></script> 
+<script type="text/javascript" src="/script/scriba/send.js"></script>
+
+<script type="text/javascript" src="/script/user-tools.js"></script> 
+
+<script type="text/javascript">
+
+var socket = new io.Socket(null, {rememberTransport: true, port:80});
+
+socket.connect();
+	
+// Students info.
+	var student = {
+		name : "<%=student.name%>",
+		firstname : "<%=student.firstname%>",
+		lastname : "<%=student.lastname%>",
+		id : "<%=student.id%>",
+		facebook : "<%=student.facebook%>",
+		fbID : "<%=student.fbID%>",
+		email : "<%=student.email%>",
+		university : "<%=student.university%>",
+		career : "<%=student.career%>",
+		avatar : "<%=student.avatar%>",
+		studying : "<%=student.studying%>",
+		route : 'me'
+		}
+	
+	 	
+		
+											
+											
+	student.action = "enter";
+	student.suggest_courses = [];
+	student.suggest_courses.push(("<%=suggest_courses[0].id%>"));
+	student.suggest_courses.push(("<%=suggest_courses[1].id%>"));
+	student.suggest_courses.push(("<%=suggest_courses[2].id%>"));
+	student.suggest_courses.push(("<%=suggest_courses[3].id%>"));
+	student.suggest_courses.push(("<%=suggest_courses[4].id%>"));
+	socket.send(student);		
+	receptor(socket,student);
+	
+
+window.onunload = function(){
+	student.action = "disconnect";
+	socket.send(student);
+};
+
+window.onload = function(){
+	
+	// Buscador
+	$("input[name='search']").keyup(function(){
+		student.action = "search";
+		student.search = $(this).val();
+		student.filter = $(".filter").attr("data-select");
+		socket.send(student);
+	});
+	
+	$(".opt").find("header").click(function(){
+		$(this).parent().find(".opt-inner").toggle("fast");
+	});
+	
+	$("input[name='add-course']").click(function(){
+		student.action = "addcourse";
+		student.course = {};
+		student.course.name = $("input[name='new-course']").val();
+		socket.send(student);
+		
+	});
+	
+	$(".filter").click(function(){
+		$(".filter-select").toggle();
+	});
+	
+	$(".filter-select").find("li").click(function(){
+		$(".filter").html($(this).find("span").html());	
+		$(".filter").attr("data-select",$(this).attr("data-select"));
+		
+		$(".filter").width("152");
+		$(".filter-select").toggle();	
+		
+		if($(".filter-select").find(".nf").length == 0){
+			var nf = $('<li class="nf"><span>No filtrar</span></li>');
+			nf.click(function(){
+				$(".filter").html('Filtrar <img src="/img/icons/down-arrow.png"/>');
+				$(".filter").width("65");
+				$(".filter-select").toggle();
+			});
+			nf.appendTo($(".filter-select"));
+		}
+	});
+	
+	$(".course-container").click(function(){
+		window.location = "/slate?course=" + $(this).attr("data-course-id");
+	});
+	
+};
+
+</script>
+</head>
+<body>
+<div id="header">
+        <div id="logo"><img src="/img/logos/logo2.png" height="23" /></div>
+        
+        <div id="menu">
+        	<ul>
+            	<li class="user"><img src="<%=student.avatar%>" width="20" height="20"/><a href="/"><%= student.name %></a></li>
+            	<li><a href="/nb?id=<%=student.id%>">Cuaderno</a></li>
+                <li><a href="/slate?id=<%=student.id%>">Pizarra</a></li>
+                 <li><a href="/plugins">Extensiones</a></li>
+            </ul>
+        </div>     
+</div>
+
+<div id="page">
+	<div id="container">
+    	<div id="left">
+        	<div class="opt courses">
+				<header><div class="icon"></div><span>Mis cursos</span></header>
+                <div class="opt-inner">
+                	<div class='list-courses'>
+                    						
+                                            <!-- COURSE -->
+                                            <% for(var i=0;i<courses.length;i++){ %>
+											<div class='course'>
+												<div class='course-title'>
+													<%=courses[i].name%>
+													<div class='course-students'>
+														<%=courses[i].students%>
+													</div>
+												</div>
+												<div class='course-buttons'>
+													<button title='Cuaderno' class='course-button notebook'></button>
+													<button title='Pizarra' class='course-button slate'></button>
+												</div>
+											</div>
+                                            <% } %>
+                                            
+                                            <!-- END COURSE -->
+                                            
+                                            
+                                            <div class="empty"><span>No tienes cursos</span></div>
+                                            
+                                            
+                     </div>
+                </div>
+            </div>
+            
+           	<!--<div class="opt circles">
+				<header><div class="icon"></div><span>Mis círculos</span></header>
+            </div>-->
+            
+            <div class="opt friends">
+				<header><div class="icon"></div><span>Mis amigos</span></header>
+                <div class="opt-inner">
+                	<div class="list-friends">
+                    	<div class="empty"><span>Sin amigos</span></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="right">
+        	<section id="right_container">
+
+            	<div class="box search">
+                    <header>
+                        <span>Buscador de cursos</span>
+                    </header>
+            	
+                	<div class="inner-box">
+                    <form method="post" action="/" onsubmit="return false">
+                    	<div class="wrapper-textarea">
+                        <input type="search" name="search" placeholder="¿Qué estás estudiando?"/>
+                        <button class="filter" data-select="none">Filtrar <img src="/img/icons/down-arrow.png"/></button>
+                        	<ul class="filter-select">
+                            	<li data-select="university"><span>Solo en mi universidad</span></li>
+                            </ul>
+                        </div>
+                    </form>
+                    
+                    <!-- ALSO NEW COURSES -->
+                    <div id="search-results">
+                    	<!--<div class="not-found"><img src="/img/icons/151-telescope.png">No encontrado</div>-->
+                        <!--<div class="course-container">
+                            <div class="course-data title">Sistemas Operativos</div> 
+                            <div class="course-data students">123 estudiantes</div>    
+                            <div class="course-data university">Universidad de Lima</div>
+                            <div class="course-data faculty">Facultad de Ingeniería de Sistemas</div>         
+                        </div>-->
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="box popular">
+                    <header>
+                        <span>Cursos populares</span>
+                    </header>
+            	
+                	<div class="inner-box">
+                    
+                    <div class="suggest-courses">
+                    
+                    	<table>
+                        
+                        
+                    
+                    <% for(var i=0;i<suggest_courses.length;i++){ %>
+                        <tr class="course-container" data-course-id="<%=suggest_courses[i].id%>">
+                            <td class="course-data title"><%=suggest_courses[i].name%></td> 
+                            <td class="course-data students"><img width="13" style="margin-right:10px" src="/img/icons/user.png"><span class="nstudents"><%=suggest_courses[i].students%></span></td>    
+                            <td class="course-data university"><%=suggest_courses[i].university%></td>
+                            <td class="course-data career"><%=suggest_courses[i].career%></td>
+                            <!--<td class="course-data last-msg"><img width="16px" src="<%=student.avatar%>"><strong>Daniel Flores :</strong> Hola me llamo Daniel Flores</td>-->        
+                        </tr>
+                    <% } %>
+                    
+                    	</table>
+
+                    </div>
+                    
+                    </div>
+                    
+                </div>
+                
+                <div class="box add">
+                <header>
+                	<span>Nuevo curso</span>
+                </header>
+            	
+                	<div class="inner-box">
+                    <form method="post" action="/" onsubmit="return false">
+                        <input type="text" name="new-course" placeholder="Nombre del curso"/>
+                        <input type="submit" name="add-course" value="Agregar"/>
+                    </form>
+                    
+                    <div style="clear:both"></div>
+                	</div>
+                
+                
+                </div>
+
+            </section>
+        </div>
+  	</div><!-- END CONTAINER -->
+</div><!-- END PAGE -->
+
+<!-- others -->
+<div id="tooltip"></div>
+
+</body>
+</html>

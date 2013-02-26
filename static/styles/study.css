@@ -1,0 +1,290 @@
+*{
+	border:0;
+	margin:0;
+	outline:0;
+	font-family:"Myriad Web Pro";
+	
+}
+
+html {
+	min-width:1000px;
+	height:100%
+}
+body {
+	/*background:#F0F2F2;*/
+	height:100%;
+	background:#F3F3F3
+	
+}
+
+/*---------------------------------------------------------------------
+ OTROS
+ ----------------------------------------------------------------------*/
+
+#envoltura {
+	min-height:100%;
+	height:auto !important;
+	heigth:100%;
+	margin:0 auto -40px;
+	width:98%;
+	}
+	
+#envoltura #header {
+	width:100%;
+	height:50px;
+	margin-bottom:5px;
+	background:#2b3845;
+	margin-top:-10px;
+	border-radius:4px;
+	-moz-box-shadow: 0 0 5px #868E9B;
+	-webkit-box-shadow: 0 0 5px #868E9B;
+	box-shadow: 0 0 5px #868E9B;
+}
+
+/*---------------------------------------------------------------------
+	USUARIO
+	--------------------------------------------------------------------*/
+#envoltura #header #usuario_dentro {
+	width:990px;
+	height:40px;/*antes 110*/
+	background:transparent;
+	padding:0px 2px;
+	padding-top:8px;
+	}
+
+#envoltura #header #usuario_dentro #usuario_detalles{
+	height:30px; /*antes 100*/
+	background:transparent;
+	
+	padding:5px;
+	float:left;
+}
+
+#envoltura #header #usuario_dentro #usuario_detalles #usuario_imagen {
+	float:left;
+	height:30px;/*antes 100*/
+	background:white;
+	width:30px;
+}
+
+#envoltura #header #usuario_dentro #usuario_detalles #usuario_informacion {
+	float:left;
+	height:30px;/*antes 100*/
+	background:transparent;
+	text-align:left;
+	font:8px verdana;
+	padding-left:5px;
+	padding-right:5px;
+	border-right:1px solid #37575E;
+}
+
+#envoltura #header #usuario_dentro #usuario_detalles #usuario_informacion h2.nick{
+	color:#FFF;	
+	font:9px verdana;
+	margin-top:-2px;
+	margin-bottom:2px;
+	
+}
+
+#envoltura #header #usuario_dentro #usuario_detalles #usuario_informacion h4.universidad, h4.carrera{
+	color:silver;	
+	margin-top:-3px;
+	margin-left:10px;
+	font:9px verdana;
+	}
+
+#envoltura #header #usuario_dentro #search {
+	float:left;
+	
+	line-height:30px;
+	margin-top:7px;
+}
+
+#envoltura #header #usuario_dentro #search input.txtSearch {
+	height:25px;
+}
+
+/*---------------------------------------------------------------------
+	LOGO
+	--------------------------------------------------------------------*/
+
+#envoltura #header #logo {
+	font:20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#FFF;
+	float:right;
+	padding-top:15px;
+	padding-right:10px;
+	
+}
+
+#envoltura #header #logo a {
+	color:#FFF;
+	text-decoration:none;
+}
+
+/*---------------------------------------------------------------------
+	CONTAINER
+	--------------------------------------------------------------------*/
+	
+#envoltura #container {
+	width:100%;
+	margin-top:10px;
+}
+
+/*---------------------------------------------------------------------
+	CONTAINER COLUMNS  | REPETIDO
+	--------------------------------------------------------------------*/
+	
+	#envoltura #container #left-column {
+	width:70px;
+	float:left;
+	height:600px;
+
+	}
+	
+	#envoltura #container #workSpace{
+	float:left;
+	height:auto;
+	padding:0px 10px 10px 10px;
+	width:750px;
+	position:relative;
+}
+	
+	#envoltura #container  #right-column {
+	float:right;
+	width:50px;
+	border-left:1px solid #000;
+	height:600px;
+	
+}
+
+/*---------------------------------------------------------------------
+	LEFT - COLUMN
+	--------------------------------------------------------------------*/
+	
+#left-column #tools{
+	width:100%;
+}
+
+#left-column #tools tr {
+	
+
+
+}
+
+#left-column #tools tr td{
+	width:30px;
+	height:30px;
+	border-radius:5px;
+	border:1px solid #CACACA;
+}
+
+	
+	
+
+/*---------------------------------------------------------------------
+	workSpace - Medium
+--------------------------------------------------------------------*/
+	
+#workSpace #medium {
+		width:100%;
+		height:auto;
+		float:left;
+	}
+	
+#medium #medium_left{
+		float:left;
+		background:#FFF;
+		
+		border-radius:4px;
+	-moz-box-shadow: 0 0 5px #868E9B;
+	-webkit-box-shadow: 0 0 5px #868E9B;
+	box-shadow: 0 0 5px #868E9B;
+	height:600px;
+	cursor:url(/stendev/img/cursors/pencil.gif),auto;
+	}
+	
+/* APPS */
+	
+#medium #medium_left #notebook {
+	float:left;
+	background:#FFF;
+	cursor:url(/stendev/img/cursors/pencil.gif),auto;
+}
+
+#medium #medium_left #notebook:hover {
+	cursor:url(/stendev/img/cursors/pencil.gif),auto;
+}
+
+#medium #medium_left #codebook {
+	float:left;
+	background:#FFF;
+}
+
+#codebook {
+	padding:10px;
+}
+
+#medium #medium_left #codebook:hover {
+	cursor:auto;
+}
+
+#medium #medium_right{
+		width:200px;
+		height:600px;
+		float:right;
+		border-left:1px solid #666;
+		background:transparent;
+		padding-left:10px; /* para cuaderno */
+}
+	
+/*---------------------------------------------------------------------
+	RIGHT - COLUMN
+--------------------------------------------------------------------*/
+
+#envoltura #container  #right-column {
+	float:right;
+	position:relative;
+}
+
+/*---------------------------------------------------------------------
+	RIGHT-COLUMN | APPS
+--------------------------------------------------------------------*/
+
+#right-column #icons_apps{
+	width:50px; /* 300 */
+	float:right;
+	position:relative;
+	background:transparent;
+}
+
+#right-column #icons_apps ul{
+	padding:0;
+	list-style:none;
+}
+
+#right-column #icons_apps ul li{
+	width:50px;
+	height:50px;
+}
+
+#right-column #icons_apps ul li#btn_notebook{
+	background:url(../img/icons/notebook.png) no-repeat center;
+}
+
+#right-column #icons_apps ul li#btn_codebook{
+	background:url(../img/icons/codebook.png) no-repeat center;
+}
+
+
+#right-column #icons_apps ul li#btn_daily{
+	background:url(../img/icons/pocket_32.png) no-repeat center;
+}
+
+#right-column #icons_apps ul li#btn_daily:hover {
+	background:url(../img/icons/daily_on.png) no-repeat center;
+}
+
+#right-column #icons_apps ul li#btn_forum{
+	background:url(../img/icons/chat_32.png) no-repeat center;
+}

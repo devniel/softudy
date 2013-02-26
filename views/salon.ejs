@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stendev</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/styles/index.css" />
+<link href='http:/stendev.comli.com/favicon.ico' rel='shortcut icon' type='image/x-icon'/>
+<link href='http://stendev.comli.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://fonts.googleapis.com/css?family=Cabin:bold' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="/script/socket.io.js"></script>
+<script type="text/javascript">
+
+var socket = new io.Socket(null, {rememberTransport: false, port:1111});
+socket.connect();
+
+// Students info.
+var student = {
+	firstname : "<%=student.firstname%>",
+	avatar : "<%=student.avatar%>",
+	id : "<%=student.id%>",
+	studying : "<%=student.studying%>",
+	}
+	
+boxs = [];
+
+/*------------------------------------------------------------------------------------------------------------------------------
+	GETSTUDENT
+----------------------------------------------------------------------------------------------------------------------------------*/
+		
+function getStudent(id_user) {
+	student.action = "getStudent";
+	student.getData = id_user;
+	socket.send(student);
+
+	
+	$('#tooltip').css({
+		top : 	$('#' + id_user).offset().top + 18,
+		display : 'block',
+		left : 	$('#' + id_user).offset().left + 18,
+		zIndex : 3
+	});
+	
+	$('#tooltip').mouseover(function(){
+		$('#tooltip').css({
+			display: 'block'
+			});
+			});
+			
+	$('#tooltip').mouseout(function(){
+		$('#tooltip').css({
+			display: 'none'
+			});
+			});
+	
+	$('#' + id_user).mouseout(function(){
+		$('#tooltip').css({
+			display: 'none'
+			});
+			});
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------
+	OPEN CHAT
+----------------------------------------------------------------------------------------------------------------------------------*/
+
+function openChat(id){
+	
+	if($(".chat" + id).css('display') == 'none'){
+		$(".chat" + id).css({
+			display:"block",
+			top : $('#' + id).offset().top + 18,
+			left : $('#' + id).offset().left + 18,
+			});
+			
+	}
+	
+	if(!($(".chat" + id).length > 0)){
+		
+	$('<div class="chat' + id + '">').css({
+		width: '200px',
+		height : '200px',
+		background : '#FFF',
+		position : 'absolute',
+		top : $('#' + id).offset().top + 18,
+		left : $('#' + id).offset().left + 18,
+		'z-index' : 10,
+		padding : '2px',
+		'border-radius' : '5px',
+	}).appendTo('body');
+	
+	$('<div class="headerChat' + id + '">').css({
+		width : '200px',
+		height : '20px',
+		background : '#FFF',
+	}).appendTo(".chat" + id);
+	
+	$('<div class="bodyChat' + id + '">').css({
+		width : '190px',
+		height : '140px',
+		font : '10px "Myriad Web Pro"',
+		background : '#FFF',
+		'padding-left' : '10px',
+		overflow : 'auto',
+		'margin-bottom' : '10px'
+	}).appendTo(".chat" + id);
+	
+	$('<div class="msgChat' + id + '">').css({
+		width : '200px',
+		height : '30px',
+		background : '#d5e4e6',
+	}).appendTo(".chat" + id);
+	
+	$('<form>',{
+		"class" : "form" + id,
+		method : 'post',
+		onsubmit : function(){return false},
+		action : "/",
+		style : "position:relative",
+		}).appendTo(".msgChat" + id);
+	
+	$('<input id="inputChat' + id + '" type="text" name="msgBox">').css({
+		width : '188px',
+		height:'27px',
+		font : "11px 'Myriad Web Pro'",
+		'padding-left' : '10px',
+		'border-radius' : '5px',
+		background : '#eef4f5',
+		float: 'left',
+		border : '1px solid #a9b9bb',
+	}).appendTo(".form" + id);
+	
+	/*$('<button>',{
+		text : "Enviar",
+		click : function(){
+				student.action = "msgChat";
+				student.msg = $("#inputChat" + id).val();
+				student.toId = id;
+				socket.send(student);
+				$("#inputChat" + id).val("");
+			},
+		style : "width:20px;height:20px;position:absolute;top:10;right:0"
+			}).appendTo(".form" + id);*/
+
+	}
+	
+		
+$("#inputChat" + id).focus();	
+		
+$(".chat" + id).mouseover(function(){
+	$(".chat" + id).css({
+		display : 'block'
+	});
+});
+
+$(".chat" + id).mouseout(function(){
+	$(".chat" + id).css({
+		display : 'none'
+	});
+});
+			
+			
+$("#inputChat" + id).keypress(function(e){
+		evt = e || window.event;
+		if ((evt.charCode == 13 || evt.keyCode == 13) && this.value !== ""){
+					//alert(this.value);
+					student.action = "msgChat";
+					student.msg = this.value;
+					student.toId = id;
+					socket.send(student);
+					this.value = "";
+				//var cont_change = cont.replace(/&/g,"[amp]");		
+			}	
+		});
+}
+
+
+window.onload = function(){
+
+$('<div id="tooltip">').css({
+		background : '#000',
+		color : '#FFF',
+		position : 'absolute',
+		top : '10px',
+		left : '10px',
+		width : '100px',
+		height : '50px',
+		borderRadius : '5px',
+		display : 'none',
+		padding : '10px',
+		font: "10px 'Myriad Web Pro'"
+		}).appendTo('body');
+		
+// id = to student #?
+
+
+// Create table
+var table = document.createElement("table");
+var innerTable = "";
+
+for(var i=1;i<=10;i++){
+	innerTable += "<tr class=" + i + ">";
+	for(var j=1;j<=25;j++){
+		innerTable += "<td id='(" + i + "," + j + ")' ></td>";
+	}
+	innerTable += "</tr>"
+}
+
+table.innerHTML = innerTable;
+
+document.getElementById("students").appendChild(table);
+
+// Set the action
+//student.action = 'enter';
+
+// Send by socket
+socket.send(student);
+
+// RandomCoord = an array to save the coordenates of box that are in use
+
+boxs.push({
+				"coord": null,
+				"id": null
+			});
+			
+// Data.
+socket.on('message', function(data){
+	
+	if(data.action !== 'disconnect' && data.action !== 'getStudent' && data.action !== 'msgChat'){
+		// i<=10, j<=25 // Dimensions of the table.
+		randomI = 0;
+		randomJ = 0;
+		boxInUse = true;
+		
+		while(boxInUse == true){
+			randomI= Math.floor(Math.random()*100);
+			randomJ= Math.floor(Math.random()*100);
+			if(randomI <= 10 && randomJ <=25 && randomI !== 0 && randomJ !== 0){
+				coord = new Array();
+				coord[0] = randomI;
+				coord[1] = randomJ;
+				
+				for(var x = 0;x<=boxs.length;x++){
+					if(boxs[x] == coord){
+						boxInUse = true;
+					}
+					else {
+						boxInUse = false;
+					}
+				}
+			}
+		}
+		
+		// No se usa esa caja, entonces guardar
+		if(boxInUse == false){
+		
+			boxs.push({
+				"coord": coord[0] + "," + coord[1],
+				"id": data.id
+			});
+			
+			idBox = "(" + coord[0] + "," + coord[1] + ")";
+			userBox = document.getElementById(idBox);
+			userBox.id = data.id;
+			userBox.style.background = "url(" + data.avatar + ")";
+			userBox.style.backgroundSize = "32px 32px";	
+			userBox.style.cursor = "pointer";
+			userBox.onmouseover = function(){
+				getStudent(this.id);
+			}
+			
+			userBox.onclick = function(){
+				openChat(this.id);
+			}
+		}
+	}
+	
+	else if (data.action == 'disconnect'){
+		
+		// Buscar en el arreglo Boxs, el id que se va
+		for(var i in boxs){
+			//alert(boxs[i].id);
+			if(boxs[i].id == data.id){
+				userDisconnectBox = document.getElementById(data.id);
+				userDisconnectBox.style.background = "none";
+				oldId = "(" + boxs[i].coord + ")";
+				userDisconnectBox.id = oldId;
+				userDisconnectBox.onmouseover = null;
+				userDisconnectBox.style.cursor = "default";
+				//boxs[i].id = "#";
+				//boxs[i].coord = "#";
+				boxs.splice(i,1);
+			}
+		}
+	}	
+	
+	else if (data.action == "getStudent"){
+		//alert(data.getData.studying);
+		var dataText = "<span>Nombre : " + data.getData.name + "</span><br/>" +
+					   "<span>Estudiando : " + data.getData.studying + "</span><br/>" +
+					   "<span>Cuaderno : " +  "<a style='color:#FFF' href='http://www.google.com.pe/'>Google</a>";
+					   
+		$("#tooltip").html(dataText);
+		
+		//alert(data.getData.studying);
+	}
+	
+	else if (data.action == "msgChat"){
+		//alert(data.msg + " " + data.nick)
+		// data.toId ?
+		// usuario que envía es data.ID
+		// usuario que recibe es data.toID
+		$("#inputChat" + data.toId).val("");
+				
+				if(data.toId !== student.id){
+				openChat(data.toId);
+			//if(data.msg !== ""){
+				var msg = $("<span style='display:block;'><b>" + data.firstname + " : </b>" + data.msg + "</span>");
+				$('.bodyChat' + data.toId).append(msg);
+				//var sppos = $('.bodyChat' + data.id + ' span:last-child').position();
+				//alert(sppos.top-22);
+				$('.bodyChat' + data.toId).scrollTop(100000);
+				}
+				else
+				{
+				openChat(data.id);
+			//if(data.msg !== ""){
+				var msg = $("<span style='display:block;'><b>" + data.firstname + " : </b>" + data.msg + "</span>");
+				$('.bodyChat' + data.id).append(msg);
+				//var sppos = $('.bodyChat' + data.id + ' span:last-child').position();
+				//alert(sppos.top-22);
+				$('.bodyChat' + data.id).scrollTop(100000);
+				}
+				
+			//}
+		}
+});
+
+}
+
+window.onunload = function(){
+	student.action = "disconnect";
+	socket.send(student);
+};
+
+
+
+</script>
+</head>
+<div id="envoltura">
+
+
+
+	<!-- User -->
+ 
+	<div id="header">
+		<div class="login">
+			<ul id="user">
+				<li id="name"><img style="float:left;margin-top:-3px;" width="30px" height="30px" src="<%=student.avatar%>"><div style="float:left;height:30px;font:12px 'Myriad Web Pro';line-height:1;margin-left:10px;" class="username"><%=student.firstname + " " + student.lastname %><br/><%=student.university%></div>
+                </li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- Searcher -->
+	<div id="students">
+	</div>
+ 	<div id="center">
+ 			<div id="studying">
+			<h2 class="course"><%= salon %></h2>
+			</div>
+   	</div>
+    <div class="cut" style="clear:both"></div>
+    		
+    		
+	</div>
+    <div class="push"></div>
+</div>
+</body>
+</html>
+
+

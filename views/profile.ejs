@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stendev | For students, by students.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/styles/profile.css" />
+<link href='http:/stendev.comli.com/favicon.ico' rel='shortcut icon' type='image/x-icon'/>
+<link href='http://stendev.comli.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://fonts.googleapis.com/css?family=Cabin:bold' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="/script/notebook.js"></script>
+<script type="text/javascript" src="/script/autoTextArea.js"></script>
+<script type="text/javascript" src="/script/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/script/jquery.masonry.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="/script/socket.io.js"></script>
+<script type="text/javascript" src="/script/youtube.js"></script>
+<script type="text/javascript" src="/script/reply.js"></script>
+<script type="text/javascript" src="/script/replyThis.js"></script>
+<script type="text/javascript" src="/script/question.js"></script>
+<script type="text/javascript" src="/script/getStudent.js"></script>
+<script type="text/javascript" src="/script/receptor.js"></script>
+	<!-- Actions -->
+	<script type="text/javascript" src="/script/actions/enter.js"></script>
+    <script type="text/javascript" src="/script/actions/disconnect.js"></script>
+    <script type="text/javascript" src="/script/actions/_getStudent.js"></script>
+    <script type="text/javascript" src="/script/actions/newQuestion.js"></script>
+    <script type="text/javascript" src="/script/actions/getAnswer.js"></script>
+    <script type="text/javascript" src="/script/actions/_reply.js"></script>
+    <script type="text/javascript" src="/script/actions/_post.js"></script>
+    <script type="text/javascript" src="/script/actions/_getComments.js"></script>
+    <script type="text/javascript" src="/script/actions/_comment.js"></script>
+
+<script type="text/javascript" src="/script/scribook/redraw_saved.js"></script>   
+<script type="text/javascript" src="/script/resizer.js"></script>
+
+<script type="text/javascript" src="/script/scriba/options.js"></script> 
+<script type="text/javascript" src="/script/scriba/colors.js"></script> 
+<script type="text/javascript" src="/script/scriba/send.js"></script> 
+<script type="text/javascript">
+
+var socket = new io.Socket(null, {rememberTransport: false, port:1111});
+
+socket.connect();
+	
+// Students info.
+	var student = {
+		name : "<%=student.name%>",
+		firstname : "<%=student.firstname%>",
+		lastname : "<%=student.lastname%>",
+		id : "<%=student.id%>",
+		facebook : "<%=student.facebook%>",
+		fbID : "<%=student.fbID%>",
+		email : "<%=student.email%>",
+		university : "<%=student.university%>",
+		career : "<%=student.career%>",
+		avatar : "<%=student.avatar%>",
+		studying : "<%=student.studying%>",
+		}
+	
+	student.action = "enter";
+	socket.send(student);	
+		
+	receptor(socket,student);	
+	
+window.onunload = function(){
+	student.action = "disconnect";
+	socket.send(student);
+
+};
+
+window.onload = function(){
+
+}
+
+	
+$(window).load(function(){
+	
+	resizer("onload");
+	
+	scribaOptions();
+	scribaColors();	
+	
+	$(".btnPost").click(function(){
+			scribaSend(socket,student);
+	});
+	
+	/*----------------------------------------------
+		Comentarios
+		----------------------------------------------------*/
+		
+	$(".btnComment").click(function(){
+	
+		
+		$(this).css({display : 'none'});
+		
+		
+		
+		var footer = $(this).parent();
+		var post = $(this).parent().parent();
+		var oldHeight = post.height();
+		
+		footer.find(".btnHideComments").toggle();
+		
+		
+		var box = $('#collage').find('article[data-post-id="' + post.attr('data-post-id') + '"]');
+	
+		var isbox = box.find('footer').find('textarea');
+		
+		if(isbox.length == 0 || isbox.css('display') == "none"){
+		
+			student.action = "getComments";
+			student.postID = post.attr('data-post-id');
+			socket.send(student);
+			
+			var textarea = $('<form method="post" action="/" onsubmit="return false">'
+		   +'<textarea type="text" onfocus="autoTextArea(this)" placeholder="Comentario aquí"></textarea>'
+		   +'</form>');
+		
+			textarea.appendTo(footer);		
+			
+			footer.find('textarea').focus();
+			
+			footer.find('textarea').keydown(function(e){
+				if ((e.charCode == 13 || e.keyCode == 13) && $(this).val() !== ""){
+					var comment =  $('<div/>').text($(this).val()).html();
+					student.action = 'comment';
+					student.comment = comment;
+					student.postID = post.attr('data-post-id');
+					socket.send(student);
+					$(this).val("");
+					$(this).blur();
+				}			
+			});
+		}	
+		
+	});
+	
+	
+	$(".btnHideComments").click(function(){
+		var footer = $(this).parent();
+		var post = $(this).parent().parent();
+		
+		footer.find(".btnComment").css({display:'block'});
+		
+		$(post).find('.comment').css({
+			display:'none'
+		});
+		
+		$(post).find('textarea').css({
+			display:'none'
+		});
+		
+		$(this).css({display:'none'});
+		
+		$("#collage").masonry();
+		
+	});
+	
+});
+
+window.onresize = function(){
+	resizer("onresize");
+}
+
+
+</script>
+</head>
+<body>
+<div id="header">
+        <!--<div id="logo"><img src="/img/logos/minimallogo.png" style="margin-top:3px;"/></div>-->
+       
+        <div id="user"> 
+        		<div id="userPicture">
+                	<% if(student.avatar == null){ %>
+                    	<img src="/img/logos/userAvatar.png" width="30" height="30"/>
+                    <%}else{%>
+                   	 	<img src="<%=student.avatar%>" width="30" height="30"/>
+                    <%}%>
+                </div>   
+                <div id="userInfo">
+                    <h2 class="name"><%= student.name %></h2>
+                    <h4 class="university"><%= student.university %></h4>
+                </div>
+                
+        </div>
+              
+        <div id="menu">
+        	<ul>
+            	<li class="active"><a href="/stenpad">Notebook</a></li>
+                
+                <li class="active"><a href="/stenpad">Archivos</a></li>
+                <li class="active"><a href="/stenpad">Amigos</a></li>
+                <li class="active"><a href="/stenpad">Plugins</a></li>
+                <li class="active"><a href="/stenpad">Herramientas</a></li>
+                
+                <li><a href="/news">Sketchboard</a></li>
+                <li><a href="/school">School</a></li>
+            </ul>
+        </div>
+        
+        <div id="searcher">
+        	<form method="post">
+            	<input type="search" placeholder="Buscar ..."/>
+                <input type="button"/>
+            </form>
+        </div>
+        
+      	
+        
+    </div>
+<div id="page">
+	<div id="container">
+
+			<!-- TOOLS -->
+     		<div id="tools">
+            
+            	<div class="icon user"></div>
+                <div class="icon book"></div>
+                
+            </div>
+            
+            <!-- BOARD -->       
+            <div id="board">
+            
+            <header>
+                <span class="university">
+                	Estudiantes de <%=student.university%>
+                </span>
+            </header>
+            
+            <section id="university-info">
+                <section id="colleges">
+                    <header>
+                        <span>Estudiantes</span>
+                    </header>
+                    
+                    <article>
+                   
+                    </article>
+                    
+                </section>
+                
+                <section id="circles">
+                    <header>
+                        <span>Círculos de estudio</span>
+                    </header>
+                    
+                    <article class="circle">
+                    	<img class="circle-logo" src="http://www.w3.org/html/logo/downloads/HTML5_Badge_32.png"/>
+                        <header class="circle-title">Círculo Estudios Impacto Ambiental</header>
+                        <span class="circle-members">1021 estudiantes - 5 profesor</span>
+                    </article>                    
+                </section>
+                
+                <section id="groups">
+                    <header>
+                        <span>Grupos de estudio</span>
+                    </header>
+                    
+                    	<ul>
+                        	<li class="group">Física II <span class="members">23</span></li>
+                            <li class="group">Cálculo III <span class="members">233</span></li>
+                            <li class="group">Programación <span class="members">313</span></li>
+                            <li class="group">Arquitectura <span class="members">123</span></li>
+                            <li class="group">Estadística y Probabilidad <span class="members">53</span></li>
+                            <li class="group">Ciencias Políticas <span class="members">123</span></li>
+                            <li class="group">Historia del Perú <span class="members">63</span></li>
+                            <li class="group">Economía <span class="members">43</span></li>
+                        </ul>
+                                       
+                </section>
+                
+                 <section id="news">
+                    <header>
+                        <span>Noticias</span>
+                    </header>
+                                   
+                </section>
+                
+            </section>
+            
+            <section id="university-feed">
+            
+            <div id="scriba">
+                
+                		<form method="post" onsubmit="return false" action="/">
+                        <div id="typeScriba">  
+                        	<div class="selected"><input id="selectedType" type="hidden" value="text"/><div id="selectedIcon"><img style="opacity:0.5" src="/img/buttons/text-x-generic.png"></div></div>
+                        </div>
+                    	<div class="publish">
+                        <textarea class="publisher" onfocus="autoTextArea(this)" placeholder="Comparte algo acerca de '<%= student.studying %>' !"></textarea>
+                        <span style="clear:both"></span>
+                        </div>
+                    	</form>
+                    <div id="panelScriba">
+                        <button class="btnPost" style="float:left;padding:0px;width:60px;margin:0px">Enviar</button>	
+                                        
+                        <button class="btnText" style="float:right;"><img src="img/buttons/text.png">Texto</button>
+                        <button class="btnHandwriting" style="float:right;"><img src="img/buttons/handwriting.png">Escrito</button>
+                        <button class="btnMedia" style="float:right"><img src="img/buttons/media.png">Media</button>
+                        <button class="btnQuestion" style="float:right"><img src="img/buttons/question.png">Pregunta</button>
+                    </div>
+                    <span style="clear:both"></span>
+                </div>
+            	
+                <article class="post">
+                
+                <img class="new-avatar" src="<%=student.avatar%>"/>
+              	<strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                
+                <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                </footer>
+                
+                </article>
+                
+                <article class="post">
+                
+                <img class="new-avatar" src="<%=student.avatar%>"/>
+                <strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has et sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                </footer>
+                
+                </article>
+                
+                <article class="post">
+                
+                <img class="new-avatar" src="<%=student.avatar%>"/>
+                <strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                
+                <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                </footer>
+                
+                </article>
+                
+                <article class="post">
+                
+                <img class="new-avatar" src="<%=student.avatar%>"/>
+                <strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been taining Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+               
+                <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                </footer>
+                
+                </article>
+                
+                <article class="post">
+                
+                <img class="new-avatar" src="<%=student.avatar%>"/>
+                <strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                
+                <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                </footer>
+                
+                </article>
+                
+                <article class="post">
+                
+                <img class="new-avatar" src="<%=student.avatar%>"/>
+                <strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                
+                <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                </footer>
+                
+                </article>
+                
+                <article class="post">
+                
+                <img class="new-avatar" src="<%=student.avatar%>"/>
+                <strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+                
+                <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                </footer>
+                
+                </article>
+                
+                <article class="post">
+                
+                <img class="new-avatar" src="<%=student.avatar%>"/>
+                <strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                
+                <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                </footer>
+                
+                </article>
+                
+                <article class="post">
+                
+                <img class="new-avatar" src="<%=student.avatar%>"/>
+                <strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                
+                <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                </footer>
+                
+                </article>
+                
+                 <article class="post">
+                        <img class="new-avatar" src="<%=student.avatar%>"/>
+                <strong>Daniel Flores :</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                        
+                        
+                        <footer>
+                        	<a title="Comenta este aporte" class="btnComment">0 Comentarios</a>
+                        </footer>
+                        
+                        </article>
+                
+            </section>
+            
+            </div>
+            
+            <!-- SIDEBAR -->  
+            <div id="sidebar">
+           		<div id="students">
+                <h6 class="numberStudents" style="color:#666;margin-bottom:3px;">Estudiantes: </h6>
+                </div>                           
+            </div>                                      
+ </div>
+                    
+ 
+<div class="cut"></div>
+
+</div>
+<!-- others -->
+<div id="tooltip"></div>
+
+</body>
+</html>

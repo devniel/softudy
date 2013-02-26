@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stendev | For students, by students.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/styles/news.css" />
+<link href='http:/stendev.comli.com/favicon.ico' rel='shortcut icon' type='image/x-icon'/>
+<link href='http://stendev.comli.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://fonts.googleapis.com/css?family=Cabin:bold' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="/script/notebook.js"></script>
+<script type="text/javascript" src="/script/autoTextArea.js"></script>
+<script type="text/javascript" src="/script/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="/script/jquery.masonry.min.js"></script>
+
+<script type="text/javascript" src="/script/jquery-ui-1.8.10.custom.min.js"></script>
+
+<script type="text/javascript" src="/script/socket.io.js"></script>
+
+<script type="text/javascript" src="/script/youtube.js"></script>
+<script type="text/javascript" src="/script/reply.js"></script>
+<script type="text/javascript" src="/script/replyThis.js"></script>
+<script type="text/javascript" src="/script/question.js"></script>
+<script type="text/javascript" src="/script/getStudent.js"></script>
+<script type="text/javascript" src="/script/receptor.js"></script>
+	<!-- Actions -->
+	<script type="text/javascript" src="/script/actions/enter.js"></script>
+    <script type="text/javascript" src="/script/actions/_enter.js"></script>
+    
+    <script type="text/javascript" src="/script/actions/disconnect.js"></script>
+    <script type="text/javascript" src="/script/actions/_getStudent.js"></script>
+    <script type="text/javascript" src="/script/actions/newQuestion.js"></script>
+    <script type="text/javascript" src="/script/actions/getAnswer.js"></script>
+    <script type="text/javascript" src="/script/actions/_reply.js"></script>
+    <script type="text/javascript" src="/script/actions/_post.js"></script>
+    <script type="text/javascript" src="/script/actions/_getComments.js"></script>
+    <script type="text/javascript" src="/script/actions/_comment.js"></script>
+    <script type="text/javascript" src="/script/actions/_msgChat.js"></script>
+    <script type="text/javascript" src="/script/actions/_url.js"></script>
+
+<script type="text/javascript" src="/script/scribook/redraw_saved.js"></script>   
+<script type="text/javascript" src="/script/resizer.js"></script>
+
+<script type="text/javascript" src="/script/scriba/scriba.js"></script>
+<script type="text/javascript" src="/script/scriba/options.js"></script> 
+<script type="text/javascript" src="/script/scriba/colors.js"></script> 
+<script type="text/javascript" src="/script/scriba/send.js"></script>
+
+<script type="text/javascript" src="/script/user-tools.js"></script> 
+
+<script type="text/javascript">
+
+var socket = new io.Socket(null, {rememberTransport: true, port:80});
+
+socket.connect();
+	
+// Students info.
+	var student = {
+		name : "<%=student.name%>",
+		firstname : "<%=student.firstname%>",
+		lastname : "<%=student.lastname%>",
+		id : "<%=student.id%>",
+		facebook : "<%=student.facebook%>",
+		fbID : "<%=student.fbID%>",
+		email : "<%=student.email%>",
+		university : "<%=student.university%>",
+		career : "<%=student.career%>",
+		avatar : "<%=student.avatar%>",
+		studying : "<%=course.id%>",
+		route : "course"
+		}
+	
+	student.action = "enter";
+	socket.send(student);		
+	receptor(socket,student);
+	
+
+window.onunload = function(){
+	student.action = "disconnect";
+	socket.send(student);
+};
+
+window.onload = function(){
+	
+	/*-----------------------------------------------
+					VIDEO
+					----------------------------------------------*/
+					
+					$(".video").live("click",function(){
+							//alert($(this).attr("data-video-id"));
+							
+							//$(".video").html('<iframe title="YouTube video player" width="100%" height="300" src="http://www.youtube.com/embed/' + $(this).attr("data-video-id") + '" frameborder="0" allowfullscreen></iframe>');
+							
+							
+							$(this).find(".contein-post").html("<object width='320' height='300'>"+
+								"<param name='movie' value='http://www.youtube.com/v/" + $(this).attr("data-video-id") + "&hl=en&autoplay=1&showsearch=0'>"+ 
+								"<param name='type' value='application/x-shockwave-flash'>"+ 
+								"<param name='allowfullscreen' value='true'> "+
+								"<param name='allowscriptaccess' value='always'> "+
+								"<param name='wmode' value='opaque' />"+
+								"<embed width='320' height='300'" +
+										"src='http://www.youtube.com/v/" + $(this).attr("data-video-id") + "&hl=en&autoplay=1&showsearch=0'"+
+										"type='application/x-shockwave-flash'"+
+										"allowfullscreen='true'"+
+										"allowscriptaccess='always'"+
+										"wmode='opaque'"+
+								"></embed>"+
+								"</object>");
+								
+							$(this).css({
+								border: "0 !important"
+							});
+					});	
+							
+				/*----------------------------------------------
+						Comentarios
+						----------------------------------------------------*/
+						
+					$(".btnComment").live("click",function(){
+						
+						var footer = $(this).parent();
+						
+						var parent = footer.parent();
+						
+						$(this).css({display : 'none'});
+						
+						footer.find(".btnHideComments").css({
+							display:'block'
+						});
+
+						var box = $('article[data-post-id="' + parent.attr('data-post-id') + '"]');
+
+						var isbox = box.find('footer').first().find('textarea');
+						
+						if(isbox.length == 0 || isbox.css('display') == "none"){
+							
+								if(isbox.length == 0){
+									var textarea = $('<textarea type="text" onfocus="autoTextArea(this)" placeholder="Comentario aquí"></textarea>');
+								   textarea.appendTo(footer);
+								}
+								
+								if(isbox.css('display') == "none"){
+									isbox.css('display','block');
+								}
+							
+							student.action = "getComments";
+							student.postID = parent.attr('data-post-id');
+							socket.send(student);
+							
+							footer.find('textarea').keydown(function(e){
+								if ((e.charCode == 13 || e.keyCode == 13) && $(this).val() !== ""){
+									var comment =  $('<div/>').text($(this).val()).html();
+									student.action = 'comment';
+									student.comment = comment;
+									student.postID = parent.attr('data-post-id');
+									socket.send(student);
+									$(this).val("");
+									$(this).blur();
+								}			
+							});
+							
+						}						
+					});
+					
+					
+					$(".btnHideComments").live("click",function(){
+						
+						var footer = $(this).parent();
+						var parent = $(this).parent().parent();
+						
+						footer.find(".btnComment").css({display:'block'});
+						
+						$(parent).find('.comment').css({
+							display:'none'
+						});
+						
+						$(parent).find('textarea').css({
+							display:'none'
+						});
+						
+						parent.find("footer").first().find("textarea").remove();	
+						parent.find("footer").first().find("section").remove();	
+						
+						$(this).css({display:'none'});
+						
+									
+					});
+				
+					// EVENTS FOR COMMENTS
+				
+					$(".post").live("mouseover",function(){
+									
+						$(this).find('footer').first().css({
+										display:'block'
+						});
+									
+									
+					}).live("mouseleave",function(){
+									
+						if($(this).find('footer').find('textarea').length == 0){
+							$(this).find('footer').first().css({
+								display:'none'
+							});
+						}									
+					})
+					
+					
+					
+	
+	userTools(socket,student);
+	
+	$("#chat-form-input").keypress(function(e){
+		evt = e || window.event;
+		if ((evt.charCode == 13 || evt.keyCode == 13) && this.value !== ""){
+					//alert(this.value);
+					student.action = "msgChat";
+					student.msg = this.value;
+					//student.toId = id;
+					socket.send(student);
+					this.value = "";
+				//var cont_change = cont.replace(/&/g,"[amp]");		
+			}	
+		});
+		
+	// _----------------------
+	
+	$(".opt-publish").click(function(){
+		if($(".students").css("display") != "none"){
+			$(".students").toggle();
+		}
+			$(".publish").toggle("fast");
+		
+	});
+	
+	$(".opt-students").click(function(){
+		if($(".publish").css("display") != "none"){
+			$(".publish").toggle();
+		}
+		$(".students").toggle("fast");
+	});
+	
+	
+}
+
+</script>
+</head>
+<body>
+
+<div id="header">
+       
+        <div id="logo"><img src="/img/logos/logo2.png" height="23" /></div>
+        
+        <div id="menu">
+        	<ul>
+            	<li class="user"><img src="<%=student.avatar%>" width="20" height="20"/><a href="/"><%= student.name %></a></li>
+            	<li><a href="/nb?id=<%=student.id%>">Cuaderno</a></li>
+                 <li><a href="/slate?id=<%=student.id%>">Pizarra</a></li>
+                 <li><a href="/plugins">Extensiones</a></li>
+            </ul>
+        </div>           
+</div>
+
+<div id="page">
+	
+	<div id="container">
+    
+    <header>
+      <h4><%=course.name%></h4>
+      
+      <nav>
+      <ul>
+      	<li class="opt-add">Agregar a mis cursos</li>
+      	<li class="opt-publish">Publicar</li>
+      	<!--<li class="categories">Ver
+        	<ul><li>Preguntas</li>
+                <li>Imágenes</li>
+                <li>Videos</li>
+                <li>Clases</li>
+            </ul>
+        </li>
+        <li class="goals">Logros</li>
+        <li class="masters">Maestros</li>-->
+        <li class="opt-students">0</li>
+      </ul>
+      </nav>
+      
+    </header>
+    
+   	<div class='publish'>
+        <section>
+        <textarea id="publish-textarea" onfocus="autoTextArea(this);" placeholder="Publica en tu pizarra"></textarea>
+        </section>
+        <button id="publish-send">Publicar</button>
+    </div>
+    
+    <div class='students'>
+        <section>
+        	<!--<div class="data-student">
+            	<div class="data-student-picture"><img src="<%=student.avatar%>"/></div>
+                <div class="data-student-name"><%=student.name%></div>
+            </div>
+            <div class="data-student">
+            	<div class="data-student-picture"><img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/186903_100001802151137_7170802_q.jpg"/></div>
+                <div class="data-student-name">Jean Peare Af</div>
+            </div>
+            <div class="data-student">
+            	<div class="data-student-picture"><img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/161113_558628746_4803870_q.jpg"/></div>
+                <div class="data-student-name">Peter Aguilar</div>
+            </div>
+            <div class="data-student">
+            	<div class="data-student-picture"><img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/186267_1644930073_6015405_q.jpg"/></div>
+                <div class="data-student-name">Edi Maser Ramos</div>
+            </div>
+            <div class="data-student">
+            	<div class="data-student-picture"><img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/161590_651468809_8245542_q.jpg"/></div>
+                <div class="data-student-name">Giancarlo Yataco</div>
+            </div>
+            <div class="data-student">
+            	<div class="data-student-picture"><img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/186306_1316630545_4835338_q.jpg"/></div>
+                <div class="data-student-name">Adolfo Cabrera</div>
+            </div>
+            <div class="data-student">
+            	<div class="data-student-picture"><img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/186906_100000154500364_7216729_q.jpg"/></div>
+                <div class="data-student-name">Joao Herencia</div>
+            </div>
+            <div class="data-student">
+            	<div class="data-student-picture"><img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/187015_1100179990_7305939_q.jpg"/></div>
+                <div class="data-student-name">Italo Villaverde Par</div>
+            </div>
+            <div class="data-student">
+            	<div class="data-student-picture"><img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/186873_100001518320172_6288420_q.jpg"/></div>
+                <div class="data-student-name">Oscar Barrientos Padi</div>
+            </div>-->
+       
+        </section>
+       
+    </div>
+                
+    <!-- BOARD -->       
+    <div id="board">
+                                   
+    <div id="collage">    
+    </div>
+                    
+    <div style="clear:both"></div>
+                    
+    </div><!-- END OF BOARD -->
+  </div><!-- END CONTAINER -->
+</div><!-- END PAGE -->
+
+
+<!-- USER-TOOL-SELECTED -->
+<!--<div id="user-tool-selected">
+	<div id="user-tool-selected-container">
+			
+        	<div id="user-publish">
+            
+            	<section>
+            	<textarea id="user-selected-publish" onfocus="autoTextArea(this);" placeholder="Comparte algo sobre <%=student.studying%>"></textarea>
+                <button id="user-selected-publish-send">Enviar</button>
+                </section>
+                
+            </div>
+     </div>
+            
+</div>-->
+        
+<!--<div id="container-user-panel">
+		
+        <div id="user-panel">
+        
+        <div id="user"> 
+        		<div id="userPicture">
+                	<% if(student.avatar == null){ %>
+                    	<img src="/img/logos/userAvatar.png" width="30" height="30"/>
+                    <%}else{%>
+                   	 	<img src="<%=student.avatar%>" width="30" height="30"/>
+                    <%}%>
+                </div>   
+                <div id="userInfo">
+                    <h2 class="name"><%= student.name %></h2>
+                    <h4 class="university"><%= student.university %></h4>
+                </div>
+        </div>
+
+        <div id="user-tools">
+        	<ul>
+            	<li class="user-tools-publish">Publicar</li>
+                <li class="user-tools-chat">Chat</li>
+            </ul>
+        </div>
+        
+        </div>
+</div>-->
+
+<!-- others -->
+<div id="tooltip">
+</div>
+
+</body>
+</html>

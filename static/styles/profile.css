@@ -1,0 +1,816 @@
+*{
+
+	margin:0;
+
+	font-family:"Myriad Web Pro";
+	
+}
+
+html {
+	min-width:1000px;
+	height:100%
+}
+body {
+	height:100%;
+	background:#FBFBFB;
+	background:#FFF;
+	
+}
+
+*:focus {
+	outline:none;
+}
+/*----------------------------------------------------------------------
+	GENERAL
+	-------------------------------------------------------------------------*/
+.btn {
+	width:70px;
+	height:30px;
+	background:#6D96A3;
+	border:1px solid #416D6D;
+	font:14px "Myriad Web Pro";
+	color:#254948;
+	background: -webkit-gradient(linear, left top, left 25, from(#99b6bf), color-stop(4%, #6D96A3), to(#6D96A3));  
+    background: -moz-linear-gradient(top, #99b6bf, #6D96A3 1px, #6D96A3 25px); 
+	-moz-box-shadow: 0 0 2px #BCBCBC;
+	-webkit-box-shadow: 0 0 2px #BCBCBC;
+	box-shadow: 0 0 2px #BCBCBC;
+	float:left;
+	margin-top:2px;
+}
+
+.btn:hover {
+		cursor:pointer;
+	-moz-box-shadow: 0 0 5px #878787;
+	-webkit-box-shadow: 0 0 5px #878787;
+	box-shadow: 0 0 5px #878787;
+}
+
+#tooltip {
+	background : #000,
+	color : #FFF,
+	position : absolute,
+	top : 10px,
+	left : 10px,
+	width : 100px,
+	height : 50px,
+	borderRadius : 5px,
+	display : none,
+	padding : 10px,
+	font: 10px 'Myriad Web Pro'
+}
+/*---------------------------------------------------------------------
+ OTROS
+ ----------------------------------------------------------------------*/
+
+#header {
+	width:100%;
+	margin:0 auto;
+	height:40px;
+	background:#FFF;
+	margin-bottom:10px;
+	padding-top:5px;
+	margin-top:-5px;
+	border-bottom:1px solid #333
+}
+
+/*---------------------------------------------------------------------
+	HEADER
+	--------------------------------------------------------------------*/
+#header #user{
+	height:30px; /*antes 100*/
+	background:transparent;
+	padding:5px;
+	float:left;
+	padding-left:5px;
+	margin-right:50px;
+}
+
+#header #user #userPicture {
+	float:left;
+	height:30px;/*antes 100*/
+	width:30px;
+}
+
+#header #user #userPicture  img{
+	height:30px;
+	width:30px;
+}
+
+#header #user #userInfo {
+	float:left;
+	height:25px;/*antes 100*/
+	background:transparent;
+	text-align:left;
+	font:10px "Myriad Web Pro";
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:3px;
+}
+
+#header #user #userInfo h2.name{
+	color:#000;	
+	font:11px "Myriad Web Pro";
+	margin-top:1px;
+	margin-bottom:2px;	
+	font-weight:bold;
+}
+
+#header #user #userInfo h4.university, h4.career{
+	color:#000;	
+	margin-top:-3px;
+	font:10px "Myriad Web Pro";
+	opacity:0.5;
+	}
+
+#header #searcher {
+	width:200px;
+	height:100%;
+	float:right;
+	margin-right:10px;
+	margin-top:7px;
+}
+
+#header #searcher input {
+	padding:5px;
+	width:175px;
+	border:0;
+	float:left;
+	overflow:none;
+}
+
+#header #searcher input {
+	padding:5px;
+	width:175px;
+	border:0;
+	float:left;
+	outline:none;
+}
+
+#header #searcher input[type="search"] {
+	border:0px !important;
+}
+
+#header #searcher input[type="button"] {
+	width:25px;
+	height:25px;
+	background:#FFF;
+	float:left;
+	border-top:1px solid #999;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+}
+/*---------------------------------------------------------------------
+	OPTIONS
+	--------------------------------------------------------------------*/
+	
+#header #menu {
+	height:100%;
+	float:left;
+	margin-right:10px;	
+}
+	
+#header #menu ul {
+	list-style:none;
+	padding:0;
+	margin-top:7px;
+}
+
+#header #menu ul li {
+	float:left;
+	font:12px "Myriad Web Pro";
+	line-height:25px;
+	background:transparent;
+	margin-right:5px;
+	text-align:center;
+	color:#000;
+	padding:0px 5px;
+	height:25px;
+	margin-top:7px;
+	border-top:1px solid #969696;
+	border-left:1px solid #969696;
+	border-right:1px solid #969696;
+}
+
+#header #menu ul li a {
+	text-decoration:none;
+	color:#000;
+}
+
+#header #menu ul li:hover a{
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+#header #menu ul li.active {
+	position:relative;
+}
+
+#header #menu ul li.active a{
+	color:#000
+}
+	
+
+
+/*---------------------------------------------------------------------
+	LOGO
+	--------------------------------------------------------------------*/
+
+#header #logo {
+	font:20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#FFF;
+	float:right;
+	padding-top:4px;
+	margin-right:10px;
+	
+}
+
+#header #logo a {
+	color:#FFF;
+	text-decoration:none;
+}
+
+#page {
+	width:99%;
+	margin:0 auto;
+	height:auto;
+	}
+/*---------------------------------------------------------------------
+	CONTAINER
+	--------------------------------------------------------------------*/
+	
+#page #container {
+	width:100%;
+	margin-top:20px;
+}
+
+	
+#page #container  #tools {
+	float:left;
+	width:40px;
+	border-right:1px solid #E8E8E8;
+	height:600px;	
+}
+
+/*---------------------------------------------------------------------
+	tools
+--------------------------------------------------------------------*/
+
+#page #container  #tools .icon{
+	float:left;
+	width:30px;
+	height:30px;
+	margin-bottom:10px;
+	}
+	
+#page #container  #tools .user{
+	background:url(/img/icons/user.png) center no-repeat;
+}
+
+#page #container  #tools .book{
+	background:url(/img/icons/book.png) center no-repeat;
+}
+
+
+/*---------------------------------------------------------------------
+	BOARD
+--------------------------------------------------------------------*/
+
+#page #container #board {
+	width:800px;
+	float:left;
+	padding-left:13px; /* limite 20 */
+	position:relative;
+	height:auto;
+}
+
+#page #container #board header:first-child{
+	width:100%;
+	height:auto;
+	background:transparent;
+	position:relative;
+	float:left;
+	padding-bottom:5px;
+	border-bottom:1px solid #F2F2F2;
+	margin-bottom:10px;
+	
+}
+
+#page #container #board header:first-child .university {
+	font:20px "Myriad Web Pro" !important;
+}
+
+/*---------------------------------------------------------------------
+	UNIVERSITY INFO
+--------------------------------------------------------------------*/
+
+#university-info {
+	width:25%;
+	height:600px;
+	float:left;
+	background:#FFF
+}
+
+#university-feed {
+	width:73%;
+	height:600px;
+	float:left;
+	background:#FF0;
+	margin-left:2%;
+}
+
+/*---------------------------------------------------------------------
+	COLLEGES - ANOTHER STUDENTS
+--------------------------------------------------------------------*/
+
+#page #container #board #colleges {
+	width:100%;
+	border:1px solid #E9E9E9;
+	float:left;
+}
+
+#page #container #board #colleges header:first-child{
+	font:13px "Myriad Web Pro";
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+
+#page #container #board #colleges header:first-child span {
+	padding:5px;
+	float:left;
+}
+
+#page #container #board #colleges article {
+	margin:10px;
+	float:left;
+}
+
+#page #container #board #colleges  .college{
+	width:30px;
+	height:30px;
+	margin-right:3px;
+	margin-bottom:3px;
+	float:left;
+}
+
+/*---------------------------------------------------------------------
+	CIRCLES
+--------------------------------------------------------------------*/
+
+#circles {
+	width:100%;
+	border:1px solid #E9E9E9;
+	float:left;
+	margin-top:10px
+}
+
+#circles header:first-child{
+	font:13px "Myriad Web Pro";
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+
+#circles header:first-child span {
+	padding:5px;
+	float:left;
+}
+
+#circles .circle{
+	margin:0 3%;
+	width:94%;
+	height:auto;
+	margin-bottom:5px;
+	float:left;
+	background:transparent;
+	vertical-align:central;
+}
+
+#circles .circle .circle-logo {
+	float:left;
+	width:50px;
+	height:50px;
+	background:transparent;
+	margin-right:10px;
+	
+}
+
+
+#circles .circle .circle-title {
+	font:11px "Tahoma";
+	font-weight:bold;
+}
+
+#circles .circle .circle-members {
+	font:9px "Tahoma";
+}
+
+
+/*---------------------------------------------------------------------
+	GROUPS
+--------------------------------------------------------------------*/
+
+#groups {
+	width:100%;
+	border:1px solid #E9E9E9;
+	float:left;
+	margin-top:10px
+}
+
+#groups header:first-child{
+	font:13px "Myriad Web Pro";
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+
+#groups header:first-child span {
+	padding:5px;
+	float:left;
+}
+
+#groups ul{
+	margin:0 3%;
+	width:94%;
+	height:auto;
+	margin-bottom:5px;
+	float:left;
+	background:transparent;
+	vertical-align:central;
+	padding:0;
+	list-style:none;
+}
+
+#groups ul li:first-child {
+	border-top:1px solid #DCDCDC;
+}
+
+#groups ul li {
+	font:12px "Myriad Web Pro";
+	border-bottom:1px solid #DCDCDC;
+	display:block;
+	height:20px;
+	vertical-align:middle;
+	line-height:20px;
+	width:100%;
+	display:block;
+}
+
+#groups ul li:hover {
+	background:#F6F6F6;
+	cursor:pointer
+}
+
+
+#groups ul li .members{
+	float:right
+}
+
+#groups .circle .circle-logo {
+	float:left;
+	width:50px;
+	height:50px;
+	background:#F00;
+	margin-right:10px;
+	
+}
+
+
+#groups .circle .circle-title {
+	font:11px "Tahoma";
+	font-weight:bold;
+}
+
+#groups .circle .circle-members {
+	font:9px "Tahoma";
+}
+
+/*---------------------------------------------------------------------
+	GROUPS
+--------------------------------------------------------------------*/
+
+#news {
+	width:100%;
+	border:1px solid #E9E9E9;
+	float:left;
+	margin-top:10px
+}
+
+#news header:first-child{
+	font:13px "Myriad Web Pro";
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+
+#news header:first-child span {
+	padding:5px;
+	float:left;
+}
+
+/*---------------------------------------------------------------------
+	UNIVERSITY FEED
+--------------------------------------------------------------------*/
+
+#university-feed {
+	width:73%;
+	height:600px;
+	float:left;
+	background:transparent;
+	margin-left:2%;
+	position:relative;
+}
+
+#university-feed .post{
+	width:100%;
+	background:trasnparent;
+	float:left;
+	padding:0;
+	margin-bottom:10px;
+	color:#494949;
+	font:12px "Myriad Web Pro";
+	padding-bottom:10px;
+	border-bottom:1px solid #E9E9E9
+}
+
+#university-feed .post .new-avatar{
+	width:50px;
+	height:50px;
+	float:left;
+	margin-right:5px;
+	margin-bottom:5px;
+}
+
+#scriba {
+	width:100%;
+	margin-bottom:10px;
+	float:left;
+}
+
+#scriba .publish textarea.publisher {
+	width:100%;
+	resize:none;
+	font:12px 'Myriad Web Pro';
+	color:#666;
+	float:left;
+	border:1px solid #D8D8D8;
+	/*-webkit-box-shadow:1px 1px 5px #EEE;*/
+	border-radius:2px;
+}
+
+/*---------------------------------------------------------------------
+	TEXTAREA
+--------------------------------------------------------------------*/
+
+textarea::-webkit-input-placeholder {
+    color:#CCC; !important
+}
+
+#typeScriba {
+					position:absolute;
+					top:0;
+					right:0;
+					height:40px;
+					width:40px;
+					overflow:hidden;
+				}
+								
+				.btnScriba, .selected{
+					height:22px;
+					width:22px;
+					margin-left:10px;
+					margin-top:7px;
+				}
+				
+
+				#panelScriba {
+					background:transparent;
+					width:100%;
+					float:left;
+					margin-top:5px;
+					display:none;
+					padding-bottom:10px;
+					border-bottom:1px solid #EEE;
+				}
+				
+				#panelScriba button {
+					margin:0;
+					border:0;
+					height:25px;
+					background:#FFF;
+					-webkit-box-shadow:0 1px 1px #848484;
+					font: 12px 'Ubuntu';
+					color:#666;
+					text-align:center;
+					line-height:20px;
+					font-weight:500;
+					margin-left:10px;
+					background-image: -webkit-gradient(
+						linear,
+						left bottom,
+						left top,
+						color-stop(0.37, rgb(230,230,230)),
+						color-stop(1, rgb(227,227,227)),
+						color-stop(0.99, rgb(242,242,242))
+					);
+					background-image: -moz-linear-gradient(
+						center bottom,
+						rgb(230,230,230) 37%,
+						rgb(227,227,227) 100%,
+						rgb(242,242,242) 99%
+					);
+				}
+				
+				#panelScriba .color {
+					float:left;
+					width:20px;
+					height:20px;
+					margin-top:3px;
+				}
+				
+				#panelScriba .color:hover {
+					
+				}
+				
+				#panelScriba button img {
+					width:20px;
+					height:20px;
+					float:left;
+				}
+
+				#panelScriba button:hover{
+					background:#E9E9E9;
+					cursor:pointer;
+				}
+
+#page #container #board #collage{
+	width:101%;
+	background:transparent;
+	height:500px;
+	float:left;
+	margin-top:10px;
+}
+
+.post{
+	height:auto;
+	float:left;
+	margin-bottom:10px;
+	margin-right:10px;
+}
+
+#page #container #board #collage .text {
+	width:198px;
+	background:#FFF;
+	/*-webkit-box-shadow:0px 1px 2px #B5B5B5;*/
+	background:#E2E9F3;
+	background:transparent !important;
+}
+
+#page #container #board #collage .text p{
+	font:11px "Myriad Web Pro";
+	color:#706F6F;
+	padding:5px;
+	line-height:15px;
+	word-wrap:break-word;
+	color:#666
+}
+
+.post footer {
+	float:left;
+	width:100%;
+	padding-bottom:5px;
+	height:auto;
+	border-top:1px solid #d0dbea;
+	padding-top:5px;
+	margin-top:5px;
+	background:#F2F2F2
+}
+
+footer img{
+	width:16px;
+	height:16px;
+	float:left;
+	margin-right:5px;
+	padding-left:5px;	
+}
+
+footer .nameStudent{
+	float:left;
+	color:#666;
+	font:11px "Myriad Web Pro";
+	line-height:16px;
+	
+}
+
+footer .btnComment, .btnHideComments{
+	float:right;
+	color:#369;
+	font:11px "Myriad Web Pro";
+	line-height:16px;
+	padding-right:5px;
+	opacity:1;
+}
+
+.btnHideComments{
+	float:right;
+	color:#69F;
+	font:11px "Myriad Web Pro";
+	line-height:16px;
+	padding-right:5px;
+	opacity:1;
+	display:none;
+}
+
+.btnHideComments:hover {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+.post footer .btnComment:hover, btnHideComments:hover {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+.post footer textarea {	
+	width : 178px;
+	height : 20px;
+	margin-top : 10px;
+	background : #FFF;
+	float : left;
+	margin-left:5px;
+	padding:5px;
+
+	resize:none;
+	font:12px 'Myriad Web Pro';
+	color:#666;
+	float:left;
+	border:1px solid #D8D8D8;
+	border-radius:2px;
+
+}
+
+#page #container #board #collage .post_img{
+	/*height:90px;*/
+	width:200px;
+	height:110px;
+	float:left;
+	-webkit-box-shadow:0 1px 1px #919191;
+	margin-right:10px;
+	margin-bottom:5px;
+}
+
+#page #container #board #collage .post_img img{
+	width:200px;
+	height:110px;
+}
+
+#page #container #board #collage .player {
+	width:200px;
+	height:150px;
+	margin-bottom:5px;
+	float:left;
+}
+
+#page #container #board #collage .question {
+	width:180px;
+	padding:20px 10px;
+	-webkit-box-shadow:0 1px 1px #B5B5B5;
+	background: -webkit-gradient(linear, 0% 0%, 0% 150%, from(#3399FF),color-stop(1%,#3399CC), color-stop(2%,#3399FF) , to(#336699));
+}
+
+#page #container #board #collage .question header {
+	font:15px 'Myriad Web Pro';
+	color:#FFF;
+	text-shadow:0px 0px 1px #F0F0F0;
+}
+
+
+#page #container #sidebar{
+	width:200px;
+	float:right;
+	height:600px;
+	border-left:1px solid #E8E8E8;
+	padding-left:10px;
+}
+
+#page #container #sidebar #students{
+	width:200px;
+	float:right;
+	padding-top:3px;
+	padding-left:3px;
+	overflow:hidden;
+	margin-bottom:10px;
+	
+}
+
+#page #container #sidebar #students{
+	float:left;
+}
+
+#page #container #sidebar #students img{
+	opacity:1;
+	border-radius:2px;
+}
+
+#page #container #sidebar #students img:hover{
+	opacity:1;
+	cursor:pointer;
+}
+

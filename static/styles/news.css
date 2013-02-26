@@ -1,0 +1,1057 @@
+*{
+	margin:0;
+	font-family:"Myriad Web Pro";
+}
+
+html {
+	min-width:1000px;
+	height:100%
+}
+body {
+	height:100%;
+	position:relative;
+	background:#FFF
+}
+
+*:focus {
+	outline:none;
+}
+/*----------------------------------------------------------------------
+	GENERAL
+	-------------------------------------------------------------------------*/
+
+
+#tooltip {
+	background : #000;
+	color : #FFF;
+	position : absolute;
+	top : 10px;
+	left : 10px;
+	width : 100px;
+	height : 50px;
+	borderRadius : 5px;
+	display : none;
+	padding : 10px
+	font: 10px 'Myriad Web Pro'
+}
+
+/*---------------------------------------------------------------------
+	HEADER
+	--------------------------------------------------------------------*/
+
+#header {
+	width:98%;
+	max-width:1440px;
+	margin:0 auto;
+	height:35px;
+	margin-bottom:10px;
+	background:#5b7a9a;
+	/*background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #526f8c),color-stop(0.90, #49687f));*/
+}
+
+/*---------------------------------------------------------------------
+	MENU
+	--------------------------------------------------------------------*/
+	
+#header #menu {
+	height:100%;
+	float:right;
+	margin-right:10px;	
+}
+	
+#header #menu ul {
+	list-style:none;
+	padding:0;
+	margin-top:0px;
+}
+
+#header #menu ul li {
+	float:left;
+	font:11px "Myriad Web Pro";
+	line-height:35px;
+	margin-right:5px;
+	text-align:center;
+	padding:0px 10px;
+	height:35px;
+	background:transparent;
+}
+
+#header #menu ul li.user img{
+	float:left;
+	margin-right:5px;
+	margin-top:6px;
+	border:1px solid #4d6a87
+}
+
+#header #menu ul li a {
+	text-decoration:none;
+	color:#FFF;
+	text-shadow:0px 1px 0px #000;
+	font-weight:bold;
+}
+
+#header #menu ul li:hover a{
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+#header #menu ul li.active {
+	position:relative;
+	color:#F00;
+	border-radius:3px;
+}
+
+#header #menu ul li.active a{
+	font-weight:bold;
+}
+
+/*---------------------------------------------------------------------
+	LOGO
+	--------------------------------------------------------------------*/
+
+#header #logo {
+	font:20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#FFF;
+	float:left;
+	padding-top:6px;
+	padding-right:10px;
+	margin-left:5px;
+	margin-right:20px;
+}
+
+#header #logo a {
+	color:#FFF;
+	text-decoration:none;
+}
+
+
+
+#page {
+	width:100%;
+	max-width:1440px;
+	margin:0 auto;
+	}
+	
+/*---------------------------------------------------------------------
+	CONTAINER
+	--------------------------------------------------------------------*/
+	
+#page #container {
+	position:relative;
+	clear:both;
+	float:left;
+	width:100%;
+	background:transparent
+}
+
+/*---------------------------------------------------------------------
+	CONTAINER HEADER
+	--------------------------------------------------------------------*/
+
+#page #container > header{
+	width:97%;
+	height:30px;
+	background:#EAEAEA;
+	background:url(../img/icons/book.png) left top no-repeat;
+	line-height:30px;
+	padding-bottom:5px;
+	border-bottom:1px solid #D5D5D5;
+	margin:0 auto;
+}
+
+#page #container > header h4{
+	margin-left:25px;
+	float:left;
+}
+
+#page #container > header nav{
+	float:right;
+}
+
+#page #container > header nav ul{
+	list-style:none;
+	padding:0;
+}
+
+#page #container > header nav ul li{
+	float:left;
+	margin-left:10px;
+	font:11px "Myriad Web Pro";
+	font-weight:bold;
+	line-height:30px;
+	display:block;
+}
+
+#page #container > header nav ul li.opt-goals{
+	background:url(/img/icons/140-gradhat.png) left no-repeat ;
+	background-size:16px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li.opt-categories{
+	background:url(/img/icons/12-eye.png) left no-repeat ;
+	background-size:16px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li.opt-masters{
+	background:url(/img/icons/165-glasses-3.png) left no-repeat ;
+	background-size:16px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li.opt-students{
+	background:url(/img/icons/user.png) left no-repeat ;
+	background-size:15px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li.opt-publish{
+	background:url(/img/icons/180-stickynote.png) left no-repeat ;
+	background-size:13px;
+	padding-left:18px;
+}
+
+#page #container > header nav ul li.opt-add{
+	background:url(/img/tango/16x16/actions/list-add.png) left center no-repeat ;
+	background-size:16px;
+	padding-left:20px;
+}
+
+#page #container > header nav ul li:hover{
+	text-decoration:underline;
+	cursor:pointer
+}
+
+#page #container > header nav ul li.categories ul{
+	display:none;
+}
+
+/*---------------------------------------------------------------------
+	tools
+--------------------------------------------------------------------*/
+
+#tools .icon{
+	float:left;
+	width:30px;
+	height:30px;
+	margin-bottom:10px;
+	}
+	
+#tools .user{
+	background:url(/img/icons/user.png) center no-repeat;
+}
+
+#tools .book{
+	background:url(/img/icons/book.png) center no-repeat;
+}
+
+
+/*---------------------------------------------------------------------
+	BOARD
+--------------------------------------------------------------------*/
+#page #container #board{
+	width:100%;
+	background:transparent;
+	
+	margin:0 auto;
+	margin-top:10px;
+	
+}
+
+#page #container #board #collage{
+	width:100%;
+	background:transparent;
+	height:auto;
+	float:left;
+	padding-left:20px;
+}
+
+#page #container #board #collage .col{
+	width:320px; /* antes 240 */
+	background:transparent;
+	height:auto;
+	float:left;
+	margin-right:10px;
+}
+
+#page #container #board #collage .col .post{
+	height:auto;
+	float:left;
+	margin-bottom:10px;
+	border-radius:0px;
+
+	position:relative;
+	-webkit-box-shadow:1px 1px 1px #E0E0E0;
+}
+
+#page #container #board #collage .post:hover{
+	cursor:pointer;
+}
+
+#page #container #board #collage .text {
+	width:100%;
+}
+
+#page #container #board #collage .post .contein-post{
+	font:11px 'Tahoma';
+	color:#706F6F;
+	padding:5px;
+	word-wrap:break-word;
+	color:#666;
+	text-shadow:0px 0px 1px #EAEAEA;
+	float:left;
+	width:310px;
+}
+
+/*-----------------------------------------------------------------------------------------
+	POST [ URL ]
+	-----------------------------------------------------------------------------------------*/
+	
+#page #container #board #collage .post img{
+	float:left;
+	margin-right:5px;
+	height:50px;
+}
+
+#page #container #board #collage .post .data-title{
+	font:11px 'Tahoma';
+	color:#706F6F;
+	/*line-height:15px;*/
+	word-wrap:break-word;
+	color:#666;
+	text-shadow:0px 0px 1px #EAEAEA;
+	font-weight:bold;
+	display:block;
+	margin-bottom:5px;
+	line-height:15px;
+	background:url("/img/mini_icons2/globe.gif") no-repeat left;
+	background-size:10px 10px;
+	padding-left:15px;
+}
+
+/*-----------------------------------------------------------------------------------------
+	POST [ VIDEO ]
+	-----------------------------------------------------------------------------------------*/
+	
+#page #container #board #collage .video img{
+	float:left;
+	margin-right:5px;
+	height:90px;
+}
+
+#page #container #board #collage .video .data-title{
+	font:11px 'Tahoma';
+	/*line-height:15px;*/
+	word-wrap:break-word;
+	color:#28577D;
+	font-weight:bold;
+	display:block;
+	margin-bottom:5px;
+	line-height:15px;
+	background:url(../img/mini_icons2/arrow_collapse.gif) no-repeat left;
+	background-size:10px 10px;
+	padding-left:15px;
+	width:98%;
+	height:15px;
+	overflow:hidden
+}
+
+#page #container #board #collage .post .data-description{
+	font:11px 'Tahoma';
+	color:#666;
+	text-shadow:0px 0px 1px #EAEAEA;
+}
+
+/*-----------------------------------------------------------------------------------------
+	POST BUTTONS
+	-----------------------------------------------------------------------------------------*/
+
+#page #container #board #collage .post .buttons {
+	float:left;
+	width:20px;
+	height:20px;
+	background:#FFF;
+	position:absolute;
+	top:0;
+	right:-20px;
+	z-index:3;
+	-webkit-box-shadow:2px 1px 2px #EDEDED;
+	display:none;
+}
+
+#page #container #board #collage .post .buttons ul {
+	list-style:none;
+	padding:0;
+}
+
+#page #container #board #collage .post .buttons ul li {
+	margin:0;
+	padding:0;
+}
+
+#page #container #board #collage .post .buttons ul li button{
+	list-style:none;
+	padding:0;
+	background:#FFF;
+	border:1px solid #d0dbea;
+	width:20px;
+	height:20px;
+	background:url(../img/icons/184-warning.png) center no-repeat;
+	background-size:13px 11px;
+}
+
+
+/*-----------------------------------------------------------------------------------------
+	POST FOOTER 
+	-----------------------------------------------------------------------------------------*/
+#page #container #board #collage .post > footer textarea {	
+	width : 298px;
+	height : 13px;
+	margin-top : 10px;
+	margin-bottom:10px;
+	background : #FFF;
+	float : left;
+	margin-left:5px;
+	padding:5px;
+
+	resize:none;
+	font:11px 'Tahoma';
+	color:#666;
+	float:left;
+	border:1px solid #D8D8D8;
+	border-radius:2px;
+}
+
+#page #container #board #collage .post > footer {
+	float:left;
+	width:100%;
+	padding-bottom:5px;
+	height:auto;
+	border-top:1px solid #d0dbea;
+	padding-top:5px;
+	background:transparent;
+	display:none;
+}
+
+#page #container #board #collage .post footer img{
+	width:16px;
+	height:16px;
+	float:left;
+	margin-right:5px;
+	padding-left:5px;	
+}
+
+#page #container #board #collage .post footer .nameStudent{
+	float:left;
+	color:#666;
+	font:11px "Tahoma";
+	line-height:16px;
+	
+}
+
+#page #container #board #collage .post footer .btnComment, .btnHideComments{
+	float:right;
+	color:#369;
+	font:11px "Tahoma";
+	line-height:16px;
+	padding-right:5px;
+}
+
+.btnHideComments{
+	float:right;
+	color:#69F;
+	font:11px "Tahoma";
+	line-height:16px;
+	padding-right:5px;
+	opacity:1;
+	display:none;
+}
+
+.btnHideComments:hover {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+#page #container #board #collage .post footer .btnComment:hover, btnHideComments:hover {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+
+#page #container #board #collage .post_img{
+	/*height:90px;*/
+	width:200px;
+	height:110px;
+	float:left;
+	-webkit-box-shadow:0 1px 1px #919191;
+	margin-right:10px;
+	margin-bottom:5px;
+}
+
+#page #container #board #collage .post_img img{
+	width:200px;
+	height:110px;
+}
+
+#page #container #board #collage .player {
+	width:200px;
+	height:150px;
+	margin-bottom:5px;
+	float:left;
+}
+
+#page #container #board #collage .question {
+	width:180px;
+	padding:20px 10px;
+	-webkit-box-shadow:0 1px 1px #B5B5B5;
+	background: -webkit-gradient(linear, 0% 0%, 0% 150%, from(#3399FF),color-stop(1%,#3399CC), color-stop(2%,#3399FF) , to(#336699));
+}
+
+#page #container #board #collage .question header {
+	font:15px 'Myriad Web Pro';
+	color:#FFF;
+	text-shadow:0px 0px 1px #F0F0F0;
+}
+
+#page #container #sidebar{
+	width:200px;
+	float:left;
+	height:600px;
+	border-left:1px solid #E8E8E8;
+	padding-left:10px;
+}
+
+#page #container #sidebar #students{
+	width:200px;
+	float:right;
+	padding-top:3px;
+	padding-left:3px;
+	overflow:hidden;
+	margin-bottom:10px;
+	
+}
+
+#page #container #sidebar #students{
+	float:left;
+}
+
+#page #container #sidebar #students img{
+	opacity:1;
+	border-radius:2px;
+}
+
+#page #container #sidebar #students img:hover{
+	opacity:1;
+	cursor:pointer;
+}
+
+/*------------------------------------------------------------------------------------------------------------------
+	CHAT
+	------------------------------------------------------------------------------------------------------------------*/
+	
+#page #container #sidebar #sidebar-chat {
+	width:100%;
+	float:left;
+	margin-bottom:5px;
+}
+
+#page #container #sidebar #sidebar-chat header{
+	font:11px "Myriad Web Pro";
+	font-weight:bold;
+	margin-bottom:5px;
+}
+
+#page #container #sidebar #sidebar-chat #chat {
+	width:100%;
+	height:500px;
+	background:#FFF;
+	float:left;
+	border:1px solid #EAEAEA
+}
+
+#page #container #sidebar #sidebar-chat #chat-log {
+	width:100%;
+	height:475px;
+	background:#FFF;
+	float:left;
+	font:10px "Myriad Web Pro";
+	overflow:auto;
+}
+
+#page #container #sidebar #sidebar-chat .chat-msg {
+	width:170px;
+	float:left;
+	border-bottom:1px solid #F6F6F6;
+	padding:5px;
+}
+
+#page #container #sidebar #sidebar-chat .chat-msg .chat-user {
+	width:22px;
+	height:22px;
+	margin-right:5px;
+	float:left;
+
+}
+
+#page #container #sidebar #sidebar-chat .chat-msg .chat-user img{
+	width:22px;
+	height:22px;
+
+}
+
+#page #container #sidebar #sidebar-chat #chat-form {
+	width:190px;
+	height:15px;
+	background:#FFF;
+	float:left;
+	padding:5px;
+	border-top:1px solid #EAEAEA;
+	border-bottom:1px solid #EAEAEA;
+}
+
+#page #container #sidebar #sidebar-chat #chat-form input{
+	width:170px;
+	height:15px;
+	background:#FFF;
+	float:left;
+	border:0;
+	margin:0;
+	outline:0;
+	padding-left:20px;
+	background:url(../img/ui/textfield.png) no-repeat left;
+}
+
+#page #container #sidebar #sidebar-chat #chat-form input::-webkit-input-placeholder {
+	line-height:30px !important;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------
+	USER TOOL SELECTED
+	---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+	
+#user-tool-selected {
+	width:100%;
+	height:auto;
+	position:fixed;
+	bottom:49px;
+	display:none;
+}
+
+#user-tool-selected #user-tool-selected-container{
+	width:90%;
+	height:auto;
+	margin:0 auto;
+	background:transparent;
+	position:relative;
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish{
+	width:332px;
+	height:auto;
+	background:#FFF;
+	border:1px solid #CAD9DF;
+	position:relative;
+	padding:5px;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.60, #F0F0F0));
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section{
+	height:auto;
+	margin:0 auto;
+	margin-bottom:-3px;
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section textarea{
+	width:320px;
+	height:13px;
+	padding:5px;
+	background:#FFF;
+	border:1px solid #CAD9DF;
+	font:11px "Tahoma";
+	resize:none;
+	
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section > button{
+	position:absolute;
+	right:-65px;
+	bottom:0px;
+	width:60px;
+	height:35px;
+	border:1px solid #C0C0C0;
+	-webkit-box-shadow:0px 0px 5px #EAEAEA;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.90, #F0F0F0));
+	font-weight:bold;
+	text-shadow:0px 0px 1px #FFF;
+	color:#2D2D2D;
+	font-size:11px;
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section > button:hover{
+	background:#D5D5D5;
+	color:#030303;
+	cursor:pointer;
+
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section > button:active{
+	background:#CCC;
+	color:#030303;
+	cursor:pointer;
+}
+
+/* other buttons */
+
+#user-tool-selected #user-tool-selected-container #user-publish > section button{
+	border:1px solid #C0C0C0;
+	-webkit-box-shadow:0px 0px 5px #EAEAEA;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.90, #F0F0F0));
+	font-weight:bold;
+	text-shadow:0px 0px 1px #FFF;
+	color:#2D2D2D;
+	font-size:11px;
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section > button:hover{
+	background:#D5D5D5;
+	color:#030303;
+	cursor:pointer;
+
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section > button:active{
+	background:#CCC;
+	color:#030303;
+	cursor:pointer;
+}
+
+/*-----------------------------------------------------------------------------------------------------------
+	URL - INFO 
+	---------------------------------------------------------------------------------------------------------*/
+	
+#user-tool-selected #user-tool-selected-container #user-publish > section #url-info {
+	width:320px;
+	height:auto;
+	padding:10px 5px;
+	margin-bottom:5px;
+	background:url("/img/gif/loader2.gif") no-repeat center #FFF;
+	position:relative;
+	border:1px solid #CAD9DF;
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section #url-info img{
+	float:left;
+	margin-right:5px;
+	height:50px;
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section #url-info .data-title{
+	font:11px 'Tahoma';
+	color:#666;;
+	word-wrap:break-word;
+	text-shadow:0px 0px 1px #EAEAEA;
+	font-weight:bold;
+	display:block;
+	margin-bottom:5px;
+	background-size:10px 10px;
+}
+
+#user-tool-selected #user-tool-selected-container #user-publish > section #url-info .data-description{
+	font:11px 'Tahoma';
+	color:#666;
+	text-shadow:0px 0px 1px #EAEAEA;
+	line-height:15px !important;
+}
+	
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------
+	USER PANEL
+	---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+	
+#container-user-panel {
+	width:100%;
+	height:35px;
+	position:fixed;
+	bottom:10px;
+	outline-top: 10px solid rgba(0,0,0,0.5);
+	background:transparent;
+}
+
+#container-user-panel #user-panel {
+	width:90%;
+	height:35px;
+	margin:0 auto;;
+	background:#AAC3CC;
+	border:1px solid #C0C0C0;
+	
+	/*-webkit-box-shadow:0px 0px 5px #EAEAEA;*/
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.90, #F0F0F0));
+	
+}
+
+#user-panel #user{
+	height:25px; /*antes 100*/
+	background:transparent;
+	padding:5px;
+	float:left;
+	padding-left:5px;
+	border-right:1px solid #C0C0C0
+}
+
+#user-panel #user #userPicture {
+	float:left;
+	height:25px;/*antes 100*/
+	width:25px;
+	-webkit-user-select:none;
+	user-select:none;
+}
+
+#user-panel #user #userPicture  img{
+	height:25px;
+	width:25px;
+}
+
+#user-panel #user #userInfo {
+	float:left;
+	height:15px;/*antes 100*/
+	background:transparent;
+	text-align:left;
+	font:10px "Myriad Web Pro";
+	padding-left:5px;
+	padding-right:5px;
+
+}
+
+#user-panel #user #userInfo h2.name{
+	color:#333;
+	font:11px "Myriad Web Pro";
+	margin-bottom:2px;	
+	font-weight:bold;
+	-webkit-user-select:none;
+	user-select:none;
+}
+
+#user-panel #user #userInfo h4.university, h4.career{
+	color:#666;
+	margin-top:-3px;
+	font:11px "Myriad Web Pro";
+	opacity:0.7;
+	-webkit-user-select:none;
+	user-select:none;
+}
+
+#user-panel #user-tools{
+	height:100%;
+	width:300px;
+	float:left;
+}
+
+#user-panel #user-tools ul{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+
+#user-panel #user-tools ul li{
+	float:left;
+	height:35px;
+	font:11px "Myriad Web Pro";
+	line-height:35px;
+	border-right:1px solid #C0C0C0;
+	text-align:center;
+	font-weight:bold;
+	text-shadow:0px 0px 1px #FFF;
+	color:#2D2D2D;
+	padding:0px 10px;
+	-webkit-user-select:none;
+	user-select:none;
+}
+
+#user-panel #user-tools ul li:hover{
+	background:#D5D5D5;
+	color:#030303;
+	cursor:pointer;
+
+}
+
+#user-panel #user-tools ul li:active{
+	background:#CCC;
+	color:#030303;
+	cursor:pointer;
+}
+
+
+/*#user-panel #user-tools ul li.user-tools-publish{
+	background:url(/img/tango/32x32/actions/format-justify-fill.png) center no-repeat;
+	background-size:22px;
+}
+
+#user-panel #user-tools ul li.user-tools-publish:hover{
+	background:url(/img/tango/32x32/actions/format-justify-fill.png) #E1E1E1 center no-repeat;
+	background-size:22px;
+	cursor:pointer;
+}
+
+#user-panel #user-tools ul li.user-tools-chat{
+	background:url(../img/tango/32x32/apps/internet-group-chat.png) center no-repeat;
+	background-size:22px;
+}*/
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------
+	POST USER PUBLISH
+	----------------------------------------------------------------------------------------------------------------------------------------*/
+.publish {
+	width:320px;
+	height:auto !important;
+	padding-bottom:5px;
+	position:absolute;
+	top:40px;
+	right:15px;
+	z-index:400;
+	background:#F9F9F9;
+	border:1px solid #E7EEEF;
+	display:none
+	
+}
+
+.publish > section{
+	width:310px;
+	margin-top:5px !important;
+	height:auto;
+	margin:0 auto;
+}
+
+.publish > section textarea{
+	width:298px;
+	height:13px;
+	padding:5px;
+	background:#FFF;
+	border:1px solid #CAD9DF;
+	font:11px "Tahoma";
+	resize:none;
+}
+
+.publish > button{
+	width:60px;
+	height:25px;
+	border:1px solid #C0C0C0;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.10, #EAEAEA),color-stop(0.90, #F0F0F0));
+	font-weight:bold;
+	text-shadow:0px 0px 1px #FFF;
+	color:#2D2D2D;
+	font-size:11px;
+	float:left;
+	margin-left:5px;
+}
+
+.publish > button:hover{
+	background:#D5D5D5;
+	color:#030303;
+	cursor:pointer;
+
+}
+
+.publish > button:active{
+	background:#CCC;
+	color:#030303;
+	cursor:pointer;
+}
+
+.publish > section > button:hover{
+	background:#D5D5D5;
+	color:#030303;
+	cursor:pointer;
+
+}
+
+.publish > section > button:active{
+	background:#CCC;
+	color:#030303;
+	cursor:pointer;
+}
+
+/*-----------------------------------------------------------------------------------------------------------
+	URL - INFO 
+	---------------------------------------------------------------------------------------------------------*/
+	
+.publish > section #url-info {
+	width:298px;
+	height:auto;
+	padding:10px 5px;
+	background:url("/img/gif/loader2.gif") no-repeat center #FFF;
+	position:relative;
+	border:1px solid #CAD9DF;
+	margin-bottom:5px;
+}
+
+.publish > section #url-info img{
+	float:left;
+	margin-right:5px;
+	height:50px;
+}
+
+.publish > section #url-info .data-title{
+	font:11px 'Tahoma';
+	color:#666;;
+	word-wrap:break-word;
+	text-shadow:0px 0px 1px #EAEAEA;
+	font-weight:bold;
+	display:block;
+	margin-bottom:5px;
+	background-size:10px 10px;
+}
+
+.publish > section #url-info .data-description{
+	font:11px 'Tahoma';
+	color:#666;
+	text-shadow:0px 0px 1px #EAEAEA;
+	line-height:15px !important;
+}
+
+/*-----------------------------------------------------------------------------------------------------------
+	STUDENTS
+	---------------------------------------------------------------------------------------------------------*/
+	
+.students {
+	width:150px;
+	position:absolute;
+	top:40px;
+	right:15px;
+	z-index:400;
+	background:#F9F9F9;
+	border:1px solid #E7EEEF;
+	padding:5px;
+	display:none;
+}
+
+.students .data-student {
+	width:100%;
+	height:30px;
+}
+
+.students .data-student .data-student-picture{
+	float:left;
+	margin-right:5px;
+}
+
+.students .data-student .data-student-picture img{
+	width:22px;
+	border:1px solid #FFF
+}
+
+.students .data-student .data-student-name{
+	float:left;
+	height:22px;
+	line-height:22px;
+	font-size:11px;
+	font-family:"Tahoma";
+	font-weight:bold;
+	text-shadow:0px 1px 1px #FFF;
+}
+
+
+
+
+
+

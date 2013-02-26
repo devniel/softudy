@@ -1,0 +1,152 @@
+*{
+	border:0;
+	margin:0;
+	outline:0;	
+}
+
+html {
+	min-width:1000px;
+	height:100%
+}
+
+body {
+	/*background:#D6E5ED;*/
+	background:#F0F2F2;
+	height:100%
+}
+
+/*---------------------------------------------------------------------
+ OTROS
+ ----------------------------------------------------------------------*/
+
+#envoltura {
+	min-height:100%;
+	height:auto !important;
+	heigth:100%;
+	margin:0 auto -60px;
+	width:100%;
+	}
+	
+#envoltura #header {
+	width:100%;
+	height:30px;
+	margin-bottom:5px;
+	background:transparent;
+	-moz-box-shadow: 0 0 5px #868E9B;
+	-webkit-box-shadow: 0 0 5px #868E9B;
+	box-shadow: 0 0 5px #868E9B;
+	display:block;
+	border-bottom:1px solid #5a7980
+}
+
+#envoltura #header .login {
+	padding-left:50px;
+	}
+	
+#envoltura #header .login ul {
+	list-style:none;
+	padding:0;
+	padding-top:8px;	
+	}
+	
+#envoltura #header .login ul li a {
+	text-decoration:none;
+	color : #455c62;
+	}
+#envoltura #header .login ul li{
+	float:left;
+	font:12px "Myriad Web Pro";
+	color : #455c62;
+	margin-right:10px
+	}
+#envoltura #header .login ul li:hover a{
+	text-decoration:underline;
+	}
+
+#envoltura #header .login ul li.btn_logout:hover {
+	text-decoration:underline;
+	cursor:pointer;
+}	
+	
+#user, #pass {
+		height:20px;
+		border-radius:3px;
+		padding:5px;
+		-moz-box-shadow: 0 1px 5px #868E9B;
+		-webkit-box-shadow: 0 1px 5px #868E9B;
+		box-shadow: 0 1px 5px #868E9B;
+		color:#666;
+		margin-top:5px;
+	}
+	
+
+body {
+		 background-image : -webkit-gradient(radial, center center, 100, center center, 700, from(#B0C6CC), to(#7898A0), color-stop(90%, #7898A0));
+		 background-image: -moz-radial-gradient(center center, circle , #B0C6CC 0%, #7898A0 100%);
+	}
+	
+	#center {
+		position:absolute;
+		top:50%;
+		left:50%;
+		width:600px;
+		height:200px;
+		margin-left:-300px;
+		margin-top:-120px;
+		text-align:center;
+		/*background:url(/stendev/img/bg/center.png) no-repeat;*/
+		z-index:2;
+		
+	}
+	
+	.logo {
+		/*text-shadow: 0px 0px 1px #7392A8;*/
+		font-weight:bold;
+		font-family:"Sansation";
+		font-size:60px;
+		color:#56676B
+	}
+
+#studying {
+		position:absolute;
+		top:50%;
+		left:50%;
+		width:600px;
+		height:200px;
+		margin-left:-300px;
+		margin-top:-80px;
+		text-align:center;
+		/*background:url(/stendev/img/bg/center.png) no-repeat;*/
+		z-index:2;
+		
+	}
+	
+#studying .course {
+		/*text-shadow: 0px 0px 1px #7392A8;*/
+		margin-top:50px;
+		font-weight:bold;
+		font-family:"Sansation";
+		font-size:60px;
+		color:#56676B
+	}
+	
+#students {
+		position:absolute;
+		top:50%;
+		left:50%;
+		width:900px;
+		height:360px;
+		margin-left:-450px;
+		margin-top:-180px;
+		text-align:center;
+		/*background:url(/stendev/img/bg/center.png) no-repeat;*/
+		z-index:3;
+}
+
+#students table tr td{
+	border-radius:2px;
+	width:30px;
+	height:30px;
+}
+	
+
